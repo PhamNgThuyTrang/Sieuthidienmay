@@ -14,6 +14,7 @@
   <link href="css/mdb.min.css" rel="stylesheet">
   <!-- Your custom styles (optional) -->
   <link href="css/style.min.css" rel="stylesheet">
+  <link href="css/menu.css" rel="stylesheet">
   <style type="text/css">
     html,
     body,
@@ -68,13 +69,14 @@
         <ul class="navbar-nav mr-auto">
 
           <li class="nav-item active">
-            <a class="nav-link waves-effect" href="file:///C:/Users/kayke/OneDrive/Documents/Sieu%20thi%20dien%20may/home-page.html">Home
+            <a class="nav-link waves-effect" href="/">Home
               <span class="sr-only">(current)</span>
             </a>
-          <!-- chèn note giới thiệu 3T -->
           </li>
+
+          <!-- chèn giới thiệu 3T -->
           <li class="nav-item">
-            <a class="nav-link waves-effect" href="file:///C:/Users/kayke/OneDrive/Documents/Sieu%20thi%20dien%20may/home-page.html" target="_blank">About 3T</a>
+            <a class="nav-link waves-effect" href="/" target="_blank">About 3T</a>
           </li>
         </ul>
 
@@ -86,8 +88,7 @@
               <i class="fas fa-shopping-cart"></i>
               <span class="clearfix d-none d-sm-inline-block"> Cart </span>
             </a>
-          </li>
-          
+          </li>    
         </ul>
 
       </div>
@@ -112,7 +113,7 @@
 
       <!--First slide-->
       <div class="carousel-item active">
-        <div class="view" style="background-image: url('https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/8-col/img%282%29.jpg'); background-repeat: no-repeat; background-size: cover;">
+        <div class="view" style="background-image: image(''); background-repeat: no-repeat; background-size: auto;">
 
           <!-- Mask & flexbox options-->
           <div class="mask rgba-black-strong d-flex justify-content-center align-items-center">
@@ -130,11 +131,6 @@
               <p class="mb-4 d-none d-md-block">
                 <strong>Nơi mua sắm tuyệt vời!</strong>
               </p>
-
-              <a target="_blank" href="https://mdbootstrap.com/education/bootstrap/" class="btn btn-outline-white btn-lg">Start
-                free tutorial
-                <i class="fas fa-graduation-cap ml-2"></i>
-              </a>
             </div>
             <!-- Content -->
 
@@ -165,11 +161,6 @@
               <p class="mb-4 d-none d-md-block">
                 <strong>Nơi mua sắm tuyệt vời!</strong>
               </p>
-
-              <a target="_blank" href="https://mdbootstrap.com/education/bootstrap/" class="btn btn-outline-white btn-lg">Start
-                free tutorial
-                <i class="fas fa-graduation-cap ml-2"></i>
-              </a>
             </div>
             <!-- Content -->
 
@@ -200,11 +191,6 @@
               <p class="mb-4 d-none d-md-block">
                 <strong>Nơi mua sắm tuyệt vời!</strong>
               </p>
-
-              <a target="_blank" href="https://mdbootstrap.com/education/bootstrap/" class="btn btn-outline-white btn-lg">Start
-                free tutorial
-                <i class="fas fa-graduation-cap ml-2"></i>
-              </a>
             </div>
             <!-- Content -->
 
@@ -240,7 +226,7 @@
       <nav class="navbar navbar-expand-lg navbar-dark mdb-color lighten-3 mt-3 mb-5">
 
         <!-- Navbar brand -->
-        <span class="navbar-brand">Categories:</span>
+        <span class="navbar-brand">Danh mục sản phẩm</span>
 
         <!-- Collapse button -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
@@ -249,31 +235,75 @@
         </button>
 
         <!-- Collapsible content -->
-        <div class="collapse navbar-collapse" id="basicExampleNav">
+        <div class="menu">
 
           <!-- Links -->
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">All
+          <ul>
+            <li>
+              <a href="#">All
                 <span class="sr-only">(current)</span>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Shirts</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Sport wears</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Outwears</a>
+
+            <li>
+              <a>Điện tử</a>
+              <ul>
+                <li>
+                  <a href="#">TV</a>
+                </li>
+
+                <li>
+                  <a href="#">Loa</a>
+                </li>
+              </ul>
             </li>
 
+            <li>
+              <a href="#">Điện lạnh</a>
+              <ul>
+                <li>
+                  <a href="#">Tủ lạnh</a>
+                </li>
+
+                <li>
+                  <a href="#">Máy lạnh</a>
+                </li>
+
+                <li>
+                  <a href="#">Máy giặt</a>
+                </li>
+
+                <li>
+                  <a href="#">Máy sấy</a>
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a>Dụng cụ bếp</a>
+              <ul>
+                <li>
+                  <a href="#">Nồi cơm điện</a>
+                </li>
+
+                <li>
+                  <a href="#">Lò vi sóng</a>
+                </li>
+
+                <li>
+                  <a href="#">Bếp điện từ</a>
+                </li>
+                
+                <li>
+                  <a href="#">Máy rửa chén</a>
+                </li>
+              </ul>
+            </li>
           </ul>
           <!-- Links -->
-
-          <form class="form-inline">
+          <form  class="form-inline float-xl-right">
             <div class="md-form my-0">
-              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"t>
             </div>
           </form>
         </div>
@@ -281,7 +311,6 @@
 
       </nav>
       <!--/.Navbar-->
-
       <!--Section: Products v.3-->
       <section class="text-center mb-4">
 
@@ -305,6 +334,7 @@
               <!--Card image-->
 
               <!--Card content-->
+              
               <div class="card-body text-center">
                 <!--Category & Title-->
                 <a href="" class="grey-text">
@@ -632,7 +662,7 @@
 
         </div>
         <!--Grid row-->
-
+      
       </section>
       <!--Section: Products v.3-->
 
