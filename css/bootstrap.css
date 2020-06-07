@@ -101,7 +101,9 @@ address {
 }
 
 ol,
-ul,
+ul{
+  list-style: none;
+}
 dl {
   margin-top: 0;
   margin-bottom: 1rem;
@@ -196,8 +198,10 @@ figure {
 }
 
 img {
-  vertical-align: middle;
-  border-style: none;
+  vertical-align: baseline;
+  width: inherit;
+  height: inherit;
+}
 }
 
 svg {
@@ -4145,13 +4149,13 @@ input[type="button"].btn-block {
 }
 
 .navbar {
-  position: relative;
+  position: absolute;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   -ms-flex-align: center;
-  align-items: center;
+  align-items: left;
   -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 0.5rem 1rem;
@@ -4171,7 +4175,7 @@ input[type="button"].btn-block {
 
 .navbar-brand {
   display: inline-block;
-  padding-top: 0.3125rem;
+  padding-top: 0;
   padding-bottom: 0.3125rem;
   margin-right: 1rem;
   font-size: 1.25rem;
