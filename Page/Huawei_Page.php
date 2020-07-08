@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,8 +13,12 @@
   <link href="../css/mdb.min.css" rel="stylesheet">
   <!-- Your custom styles (optional) -->
   <link href="../css/style.min.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
   <link href="../css/menu.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <style type="text/css">
+  
     html,
     body,
     header,
@@ -41,7 +45,17 @@
         height: 100vh;
       }
     }
-
+  </style>
+  <style>
+    body {  
+      padding-top:0px;
+    }
+    h1 {
+      color:#F90
+    }
+    p {
+      color:#0C0
+    }
   </style>
 </head>
 
@@ -52,7 +66,7 @@
     <div class="container">
 
       <!-- Brand -->
-      <a class="navbar-brand waves-effect" href="file:///C:/Users/kayke/OneDrive/Documents/Sieu%20thi%20dien%20may/home-page.html" target="_blank">
+      <a class="navbar-brand waves-effect" href="Home_Page.php" target="_blank">
         <strong class="blue-text">3T</strong>
       </a>
       <!-- Collapse -->
@@ -97,136 +111,35 @@
   <!-- Navbar -->
 
   <!--Carousel Wrapper-->
-  <div id="carousel-example-1z" class="carousel slide carousel-fade pt-4" data-ride="carousel">
-
-    <!--Indicators-->
-    <ol class="carousel-indicators">
-      <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
-      <li data-target="#carousel-example-1z" data-slide-to="1"></li>
-      <li data-target="#carousel-example-1z" data-slide-to="2"></li>
-    </ol>
-    <!--/.Indicators-->
-
-    <!--Slides-->
-    <div class="carousel-inner" role="listbox">
-
-      <!--First slide-->
-      <div class="carousel-item active">
-      <div class="view" style="background-image: url('https://dienmaycholon.vn/public/picture/slideshow/dmcl_20200527143111.png'); background-repeat: no-repeat; background-size: cover;">
-
-          <!-- Mask & flexbox options-->
-          <div class="mask rgba-black-strong d-flex justify-content-center align-items-center">
-
-            <!-- Content -->
-            <div class="text-center white-text mx-5 wow fadeIn">
-              <h1 class="mb-4">
-                <strong>Trung tâm Smartphone 3T</strong>
-                <br>
-              </h1>
-
-              <h3>
-                <strong>Hotline: 0909322168 - (028)9566688</strong>
-              </h3>
-
-              <h2>
-                <strong>197 Cao Đạt, Phường 1, Quận 5, TP.HCM</strong>
-              </h2>
-
-              <h3 class="mb-4 d-none d-md-block" style="color: red" >
-                <strong>Nơi mua sắm tuyệt vời!</strong>
-              </h3>
-            </div>
-            <!-- Content -->
-
-          </div>
-          <!-- Mask & flexbox options-->
-
-        </div>
-      </div>
-      <!--/First slide-->
-
-      <!--Second slide-->
-      <div class="carousel-item">
-        <div class="view" style="background-image: url('https://dienmaycholon.vn/public/picture/slideshow/dmcl_20200602150725.png'); background-repeat: no-repeat; background-size: cover;">
-
-          <!-- Mask & flexbox options-->
-          <div class="mask rgba-black-strong d-flex justify-content-center align-items-center">
-
-            <!-- Content -->
-            <div class="text-center white-text mx-5 wow fadeIn">
-              <h1 class="mb-4">
-              <strong>Trung tâm Smartphone 3T</strong>
-              </h1>
-
-              <h3>
-                <strong>Hotline: 0909322168 - (028)9566688</strong>
-              </h3>
-
-              <h2>
-                <strong>197 Cao Đạt, Phường 1, Quận 5, TP.HCM</strong>
-              </h2>
-
-              <h3 class="mb-4 d-none d-md-block" style="color: red" >
-                <strong>Nơi mua sắm tuyệt vời!</strong>
-              </h3>
-            </div>
-            <!-- Content -->
-
-          </div>
-          <!-- Mask & flexbox options-->
-
-        </div>
-      </div>
-      <!--/Second slide-->
-
-      <!--Third slide-->
-      <div class="carousel-item">
-        <div class="view" style="background-image: url('https://dienmaycholon.vn/public/picture/slideshow/dmcl_20200530112229.png'); background-repeat: no-repeat; background-size: cover;">
-
-          <!-- Mask & flexbox options-->
-          <div class="mask rgba-black-strong d-flex justify-content-center align-items-center">
-
-            <!-- Content -->
-            <div class="text-center white-text mx-5 wow fadeIn">
-              <h1 class="mb-4">
-              <strong>Trung tâm Smartphone 3T</strong>
-              </h1>
-
-              <h3>
-                <strong>Hotline: 0909322168 - (028)9566688</strong>
-              </h3>
-
-              <h2>
-                <strong>197 Cao Đạt, Phường 1, Quận 5, TP.HCM</strong>
-              </h2>
-
-              <h3 class="mb-4 d-none d-md-block" style="color: red" >
-                <strong>Nơi mua sắm tuyệt vời!</strong>
-              </h3>
-            </div>
-            <!-- Content -->
-
-          </div>
-          <!-- Mask & flexbox options-->
-
-        </div>
-      </div>
-      <!--/Third slide-->
-
-    </div>
-    <!--/.Slides-->
-
-    <!--Controls-->
-    <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-    <!--/.Controls-->
-
+  <div class="container"> 
+    <div id="myCarousel" class="carousel slide" data-ride="carousel"> 
+      <ol class="carousel-indicators"> 
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li> 
+        <li data-target="#myCarousel" data-slide-to="1"></li> 
+        <li data-target="#myCarousel" data-slide-to="2"></li> 
+      </ol> 
+      <div class="carousel-inner"> 
+        <div class="item active"> 
+          <img src="" style="" alt="Thiết kế 1"> 
+          <div class="carousel-caption"> 
+              <p></p> 
+          </div> 
+        </div> 
+        <div class="item"> 
+          <img src="" alt="Thiết kế 2"> 
+          <div class="carousel-caption"> 
+          </div> 
+        </div> 
+        <div class="item"> <img src="" alt="Thiết kế 3"> 
+          <div class="carousel-caption"> 
+          </div> 
+        </div> 
+      </div> 
+      <a class="left carousel-control" href="" data-slide="prev"> 
+        <span class="glyphicon glyphicon-chevron-left"></span> </a> 
+      <a class="right carousel-control" href="" data-slide="next"> 
+        <span class="glyphicon glyphicon-chevron-right"></span> </a> 
+    </div> 
   </div>
   <!--/.Carousel Wrapper-->
 
@@ -235,7 +148,7 @@
     <div class="container">
 
       <!--Navbar-->
-      <nav class="navbar navbar-expand-lg navbar-dark mdb-color lighten-3 mt-3 mb-5" style="min-width: 826px;">
+      <nav class="navbar navbar-expand-lg navbar-dark mdb-color lighten-3 mt-3 mb-5" style="min-width: 900px;" >
 
         <!-- Navbar brand -->
         <span class="navbar-brand">Danh mục sản phẩm</span>
@@ -248,13 +161,11 @@
           <!-- Links -->
           <ul>
             <li>
-              <a href="Home_Page.php">All
-                <span class="sr-only">(current)</span>
-              </a>
+              <p href="Home_Page.php">All</p>
             </li>
 
             <li>
-              <a>Điện thoại</a>
+              <p>Điện thoại</p>
               <ul>
                 <li>
                   <a href="iPhone_Page.php">Iphone</a>
@@ -284,7 +195,7 @@
             </li>
 
             <li>
-              <a>Phụ kiện</a>
+              <p>Phụ kiện</p>
               <ul>
                 <li>
                   <a href="#">Cáp sạc</a>
@@ -302,11 +213,11 @@
             </li>
 
             <li>
-              <a>Khuyến mãi</a>
+              <p>Khuyến mãi</p>
             </li>
 
             <li>
-              <a>Máy cũ</a>
+              <p>Máy cũ</p>
             </li>
           </ul>
           <!-- Links -->
@@ -322,53 +233,30 @@
       <!--Section: Products v.3-->
       <?php
         include_once("Data.php");
-        $sql_thongtin_Huawei = "SELECT * FROM `thongtin_sanpham` WHERE `Nhãn hiệu` = \"Huawei\"";
-        $ketqua_Huawei = Data::ExecuteQuery($sql_thongtin_Huawei);
+        $sql_thongtin = "SELECT *FROM thongtin_sanpham";
+        $ketqua = Data::ExecuteQuery($sql_thongtin);
       ?>
       <ul style="
-      margin: 0;
+      margin: auto;
       padding: 0;
       max-width: 100%;
-      min-width: 826px;
+      min-width: 900px;
       list-style: none;
       display: flex;
       flex-wrap: wrap;">
       <?php
-        while ($row = mysqli_fetch_array($ketqua_Huawei)) {
+        while ($row = mysqli_fetch_array($ketqua)) {
           $chuoi = <<<EOD
-              <li 
-              style="
-              border: 0.5px solid rgb(223, 219, 219);
-              width: 20%;
-              min-width: min-content;
-              height: 400px;
-              text-align: center;"
-              >
+              <li class = "list_product">
+
                 <a href="#">
-                  <img style="margin-top: 15px;
-                  margin-right: 1px;
-                  margin-left: 1px;
-                  width: 180px; 
-                  height: 200px;"
-                  src="{$row['Hình ảnh (url)']}">
+                  <img src="{$row['Hình ảnh (url)']}">
+
+                  <h3>{$row['Tên sản phẩm']}</h3>
                   
-                  <h3 style="line-height: 1.3em;
-                  height: 40px;
-                  margin: 0 0 5px 0;
-                  font-size: 14px;
-                  padding: 10px 10px;
-                  color: #333;
-                  display: -webkit-box;
-                  word-wrap: break-word;
-                  -webkit-line-clamp: 2;
-                  -webkit-box-orient: vertical;
-                  text-overflow: ellipsis;
-                  overflow: hidden;font: 14px Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;">
-                  {$row['Tên sản phẩm']}</h3>
+                  <div style="height: 15px; color: black; text-align: left; margin: 0 5px; font-size: 12px; text-decoration: line-through;">{$row['Giá niêm yết']}</div>
                   
-                  <div style="height: 20px; color: black; text-align: right; font-size: 12px; margin-right: 5px; text-decoration: line-through;">{$row['Giá niêm yết']}</div>
-                  
-                  <div style="color: red; text-align: right; font-weight: bold; margin-right: 5px;">{$row['Giá bán']}</div>
+                  <div style="color: red; text-align: left; margin: 0 5px; font-weight: bold; margin-right: 5px;">{$row['Giá bán']}</div>
                   
                   <footer>
                   <div style="width:fit-content; margin: 0 5px; word-wrap: break-word; color: black; text-align: left; font-size: 12px; margin-right: 5px;">{$row['Khuyến mãi']}</div>
@@ -432,29 +320,17 @@ EOD;
   <!--Footer-->
   <footer class="page-footer text-center font-small mt-4 wow fadeIn">
 
-    <!--Call to action-->
-    <div class="pt-4">
-      <a class="btn btn-outline-white" href="https://mdbootstrap.com/docs/jquery/getting-started/download/" target="_blank"
-        role="button">Download MDB
-        <i class="fas fa-download ml-2"></i>
-      </a>
-      <a class="btn btn-outline-white" href="https://mdbootstrap.com/education/bootstrap/" target="_blank" role="button">Start
-        free tutorial
-        <i class="fas fa-graduation-cap ml-2"></i>
-      </a>
+    <!--Contact-->
+    <div class="pt-4" style="text-align: left; margin: 10px 0 10px 10px;">
+        Trung tâm Smartphone 3T <br>
+        197 Cao Đạt, Phường 1, Quận 5, TP.HCM<br>
+        Hotline: 0909 388 266<br>
+        Email: TripleTWeb@gmail.com<br>
     </div>
-    <!--/.Call to action-->
-
-    <hr class="my-4">
-
-    <!--  -->
-    <div class="pb-4">
-    </div>
-    <!-- Social icons -->
-
+    <!--/Contact-->
     <!--Copyright-->
     <div class="footer-copyright py-3">
-      © 2019 Copyright:
+      © 2020 Copyright:
       <a> TripleTWeb</a>
     </div>
     <!--/.Copyright-->
@@ -464,18 +340,23 @@ EOD;
 
   <!-- SCRIPTS -->
   <!-- JQuery -->
-  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+  <script src="../js/jquery-1.11.1.min.js"></script>  
+  <script>   
+    $('#myCarousel').carousel({ 
+        interval:   4000    
+    });
+  </script>
   <!-- Bootstrap tooltips -->
-  <script type="text/javascript" src="js/popper.min.js"></script>
+  <script type="text/javascript" src="../js/popper.min.js"></script>
   <!-- Bootstrap core JavaScript -->
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../js/bootstrap.min.js"></script>
   <!-- MDB core JavaScript -->
-  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <script type="text/javascript" src="../js/mdb.min.js"></script>
   <!-- Initializations -->
   <script type="text/javascript">
     // Animations initialization
     new WOW().init();
-
   </script>
 </body>
 

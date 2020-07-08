@@ -1625,6 +1625,7 @@ a.text-light:hover, a.text-light:focus {
     overflow: hidden;
     background-attachment: fixed; }
   .view img, .view video {
+    
     position: relative;
     display: block; }
   .view video.video-intro {

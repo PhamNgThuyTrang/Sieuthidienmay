@@ -6228,7 +6228,6 @@ a.close.disabled {
 
 .carousel-inner {
   position: relative;
-  width: 100%;
   overflow: hidden;
 }
 
@@ -6373,6 +6372,7 @@ a.close.disabled {
   -ms-flex-pack: center;
   justify-content: center;
   padding-left: 0;
+  
   margin-right: 15%;
   margin-left: 15%;
   list-style: none;
