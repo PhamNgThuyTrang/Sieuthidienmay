@@ -48,221 +48,69 @@
     <body>
         <div class="box_content">
             <aside class="left_content">
-                <div class="characteristics">
-                    <h2>Đặc điểm nổi bật của iPhone 11 Pro Max 64GB</h2>
-                    <div id="owl-detail" class="owl-carousel owl-detail owl-theme" style="opacity: 1; display: block;">
-                            <div class="owl-wrapper-outer autoHeight" style="height: 362px;">
-                                <div class="owl-wrapper" style="width: 28732px; left: 0px; display: block;">
-                                    <div class="owl-item" style="width: 653px;">
-                                        <div class="item">
-                                            <img class="lazyOwl" src="https://cdn.tgdd.vn/Products/Images/42/200533/Slider/-iphone-11-pro-max.jpg" style="display: block;">
-                                        </div>
-                                    </div>
+                <h2>Đặc điểm nổi bật của iPhone 11 Pro Max 64GB</h2>
+                <div id="carousel-example-1z" style="height: auto; width: 100%;" class="carousel slide carousel-fade pt-4" data-ride="carousel">
+                    <!--Indicators-->
+                    <ol class="carousel-indicators">
+                    <?php
+                    include_once("Data.php");
+                    $sql_product = "SELECT * FROM `slide_sanpham` WHERE ID_sanpham = '10'";
+                    $img_product = Data::ExecuteQuery($sql_product);
+                    $count_img = 0 ;
+                    while ($row = mysqli_fetch_array($img_product)){
+                    $chuoi_img = <<<EOD
+                    <li data-target="#carousel-example-1z" data-slide-to='$count_img' class="active"></li>
+EOD;
+                    echo $chuoi_img;
+                    $count_img++;
+                    }
+                    ?>
+                    </ol>
+                    <!--/.Indicators-->
 
-                                    <div class="owl-item loading" style="width: 653px;">
-                                        <div class="item">
-                                            <img class="lazyOwl" data-src="https://cdn.tgdd.vn/Products/Images/42/200533/Slider/vi-vn-iphone-11-pro-max-tinhnang.jpg" style="display: none;">
-                                        </div>
-                                    </div>
-
-                                    <div class="owl-item loading" style="width: 653px;">
-                                        <div class="item">
-                                            <img class="lazyOwl" data-src="https://cdn.tgdd.vn/Products/Images/42/200533/Slider/-iphone-11-pro-max-thietke.jpg" style="display: none;">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="owl-item loading" style="width: 653px;">
-                                        <div class="item">
-                                            <img class="lazyOwl" data-src="https://cdn.tgdd.vn/Products/Images/42/200533/Slider/vi-vn-iphone-11-pro-max-tongquan.jpg" style="display: none;">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="owl-item loading" style="width: 653px;">
-                                        <div class="item">
-                                            <img class="lazyOwl" data-src="https://cdn.tgdd.vn/Products/Images/42/200533/Slider/vi-vn-iphone-11-pro-max-3camera.gif" style="display: none;">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="owl-item loading" style="width: 653px;">
-                                        <div class="item">
-                                            <img class="lazyOwl" data-src="https://cdn.tgdd.vn/Products/Images/42/200533/Slider/vi-vn-iphone-11-pro-max-mausac.jpg" style="display: none;">
-                                        </div>
-                                    </div>
-
-                                    <div class="owl-item loading" style="width: 653px;">
-                                        <div class="item">
-                                            <img class="lazyOwl" data-src="https://cdn.tgdd.vn/Products/Images/42/200533/Slider/vi-vn-iphone-11-pro-max-dophangiai.gif" style="display: none;">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="owl-item loading" style="width: 653px;">
-                                        <div class="item">
-                                            <img class="lazyOwl" data-src="https://cdn.tgdd.vn/Products/Images/42/200533/Slider/vi-vn-iphone-11-pro-max-anhchup.gif" style="display: none;">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="owl-item loading" style="width: 653px;">
-                                        <div class="item">
-                                            <img class="lazyOwl" data-src="https://cdn.tgdd.vn/Products/Images/42/200533/Slider/vi-vn-iphone-11-pro-max-chupanh.jpg" style="display: none;">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="owl-item loading" style="width: 653px;">
-                                        <div class="item">
-                                            <img class="lazyOwl" data-src="https://cdn.tgdd.vn/Products/Images/42/200533/Slider/vi-vn-iphone-11-pro-max-quay4k.jpg" style="display: none;">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="owl-item loading" style="width: 653px;">
-                                        <div class="item">
-                                            <img class="lazyOwl" data-src="https://cdn.tgdd.vn/Products/Images/42/200533/Slider/vi-vn-iphone-11-pro-max-chinhvideo.jpg" style="display: none;">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="owl-item loading" style="width: 653px;">
-                                        <div class="item">
-                                            <img class="lazyOwl" data-src="https://cdn.tgdd.vn/Products/Images/42/200533/Slider/-iphone-11-pro-max-night-mode.jpg" style="display: none;">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="owl-item loading" style="width: 653px;">
-                                        <div class="item">
-                                            <img class="lazyOwl" data-src="https://cdn.tgdd.vn/Products/Images/42/200533/Slider/vi-vn-iphone-11-pro-max-chandung.jpg" style="display: none;">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="owl-item loading" style="width: 653px;">
-                                        <div class="item">
-                                            <img class="lazyOwl" data-src="https://cdn.tgdd.vn/Products/Images/42/200533/Slider/vi-vn-iphone-11-pro-max-smarthdr.jpg" style="display: none;">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="owl-item loading" style="width: 653px;">
-                                        <div class="item">
-                                            <img class="lazyOwl" data-src="https://cdn.tgdd.vn/Products/Images/42/200533/Slider/vi-vn-iphone-11-pro-max-quicktake.gif" style="display: none;">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="owl-item loading" style="width: 653px;">
-                                        <div class="item">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="owl-item loading" style="width: 653px;">
-                                        <div class="item">
-                                            <img class="lazyOwl" data-src="https://cdn.tgdd.vn/Products/Images/42/200533/Slider/vi-vn-iphone-11-pro-max-manhinh.jpg" style="display: none;">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="owl-item loading" style="width: 653px;">
-                                        <div class="item">
-                                            <img class="lazyOwl" data-src="https://cdn.tgdd.vn/Products/Images/42/200533/Slider/vi-vn-iphone-11-pro-max-chip.jpg" style="display: none;">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="owl-item loading" style="width: 653px;">
-                                        <div class="item">
-                                            <img class="lazyOwl" data-src="https://cdn.tgdd.vn/Products/Images/42/200533/Slider/vi-vn-iphone-11-pro-max-pin.jpg" style="display: none;">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="owl-item loading" style="width: 653px;">
-                                        <div class="item">
-                                            <img class="lazyOwl" data-src="https://cdn.tgdd.vn/Products/Images/42/200533/Slider/vi-vn-iphone-11-pro-max-cuongluc.jpg" style="display: none;">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="owl-item loading" style="width: 653px;">
-                                        <div class="item">
-                                            <img class="lazyOwl" data-src="https://cdn.tgdd.vn/Products/Images/42/200533/Slider/vi-vn-iphone-11-pro-max-khangnuoc.jpg" style="display: none;">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="owl-item loading" style="width: 653px;">
-                                        <div class="item">
-                                            <img alt="Bộ sản phẩm chuẩn" data-src="//cdn.tgdd.vn/Products/Images/42/200533/Kit/iphone-11-pro-max-xanh-bbh-org.jpg" class="lazyOwl" style="display: none;">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                    <div class="owl-controls clickable">
-                        <div class="owl-pagination">
-                            <div class="owl-page active">
-                                <span class="">
-
-                                </span>
-                            </div>
-                            <div class="owl-page">
-                                <span class=""></span>
-                            </div>
-                            <div class="owl-page">
-                                <span class=""></span>
-                            </div>
-                            <div class="owl-page">
-                                <span class=""></span>
-                            </div><div class="owl-page">
-                                <span class=""></span>
-                            </div>
-                            <div class="owl-page">
-                                <span class=""></span>
-                            </div>
-                            <div class="owl-page">
-                                <span class=""></span>
-                            </div><div class="owl-page">
-                                <span class=""></span>
-                            </div>
-                            <div class="owl-page">
-                                <span class=""></span>
-                            </div>
-                            <div class="owl-page">
-                                <span class=""></span>
-                            </div>
-                            <div class="owl-page">
-                                <span class=""></span>
-                            </div>
-                            <div class="owl-page">
-                                <span class=""></span>
-                            </div>
-                            <div class="owl-page">
-                                <span class=""></span>
-                            </div>
-                            <div class="owl-page">
-                                <span class=""></span>
-                            </div>
-                            <div class="owl-page">
-                                <span class=""></span>
-                            </div>
-                            <div class="owl-page">
-                                <span class=""></span>
-                            </div>
-                            <div class="owl-page">
-                                <span class=""></span>
-                            </div>
-                            <div class="owl-page">
-                                <span class=""></span>
-                            </div>
-                            <div class="owl-page">
-                                <span class=""></span>
-                            </div>
-                            <div class="owl-page">
-                                <span class=""></span>
-                            </div>
-                            <div class="owl-page">
-                                <span class=""></span>
-                            </div>
-                            <div class="owl-page">
-                                <span class=""></span>
-                            </div>
+                    <!--Slides-->
+                    <div class="carousel-inner" role="listbox">
+                    <?php
+                    echo $GLOBALS;
+                    $count_img = 1;
+                    $sql_product = "SELECT * FROM `slide_sanpham` WHERE ID_sanpham = '{$GLOBALS}'";
+                    $img_product = Data::ExecuteQuery($sql_product);
+                    while ($row = mysqli_fetch_array($img_product)){
+                        if($count_img == 1){
+                        $slide_event = <<<EOD
+                        <div class="carousel-item active ">
+                            <img class="view" style="width: inherit; height: inherit;"  src="{$row['Hinh']}">
                         </div>
-                        <div class="owl-buttons">
-                            <div class="owl-prev">
-
-                            </div>
-                            <div class="owl-next">
-
-                            </div>
+EOD;
+                        echo $slide_event;
+                        $count_img++;
+                        }
+                        if($count_img != 1){
+                        $slide_event = <<<EOD
+                        <div class="carousel-item">
+                        <img class="view" style="width: inherit; height: inherit;"  src="{$row['Hinh']}">
                         </div>
+EOD;
+                        echo $slide_event;
+                        $count_img++;
+                        }
+                    }
+                    ?>
+
                     </div>
+                    <!--/.Slides-->
+
+                    <!--Controls-->
+                    <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                    </a>
+                    <!--/.Controls-->
+
                 </div>
             </aside>
 
