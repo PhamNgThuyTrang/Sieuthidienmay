@@ -8,7 +8,7 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <!-- Bootstrap core CSS -->
-  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/bootstrap/bootstrap.min.css" rel="stylesheet">
   <!-- Material Design Bootstrap -->
   <link href="../css/mdb.min.css" rel="stylesheet">
   <!-- Your custom styles (optional) -->
@@ -45,8 +45,6 @@
         height: 100vh;
       }
     }
-  </style>
-  <style>
     body {  
       padding-top:0px;
     }
@@ -110,100 +108,78 @@
   </nav>
   <!-- Navbar -->
 
-  <!--Carousel Wrapper-->
-<<<<<<< HEAD
-  
-
   <!--Main layout-->
   <main>
+    <?php
+      include_once("Data.php");
+    ?>
     <div class="container">
-    <div id="carousel-example-1z" 
-    style="height: auto; width: 100%; margin-top: 40px;"  
-    class="carousel slide carousel-fade pt-4" data-ride="carousel">
+      <!--Carousel Wrapper-->
+      <div id="carousel-example-1z" 
+      style="height: auto; width: 100%; margin-top: 40px;"  
+      class="carousel slide carousel-fade pt-4" data-ride="carousel">
 
-    <!--Indicators-->
-    <ol class="carousel-indicators">
-      <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
-      <li data-target="#carousel-example-1z" data-slide-to="1"></li>
-      <li data-target="#carousel-example-1z" data-slide-to="2"></li>
-    </ol>
-    <!--/.Indicators-->
+        <!--Indicators-->
+        <ol class="carousel-indicators">
+        <?php
+          $sql_events = "SELECT *FROM slide_events";
+          $events = Data::ExecuteQuery($sql_events);
+          $count_slide = 0 ;
+          while ($row = mysqli_fetch_array($events)){
+          $chuoi_event = <<<EOD
+           <li data-target="#carousel-example-1z" data-slide-to='$count_slide' class="active"></li>
+EOD;
+          echo $chuoi_event;
+          $count_slide++;
+          }
+        ?>
+        </ol>
+        <!--/.Indicators-->
 
-    <!--Slides-->
-    <div class="carousel-inner" role="listbox">
+        <!--Slides-->
+        <div class="carousel-inner" role="listbox">
+        <?php
+          $sql_slides = "SELECT *FROM slide_events";
+          $chuoi_slides = Data::ExecuteQuery($sql_slides);
+          while ($row = mysqli_fetch_array($chuoi_slides)){
+            if($row['ID'] == 1){
+              $slide_event = <<<EOD
+              <div class="carousel-item active ">
+                <img class="view" style="width: inherit; height: inherit;"  src="{$row['Hinh']}">
+              </div>
+EOD;
+              echo $slide_event;
+            }
+            if($row['ID'] != 1){
+            $slide_event = <<<EOD
+            <div class="carousel-item ">
+              <img class="view" style="width: inherit; height: inherit;"  src="{$row['Hinh']}">
+            </div>
+EOD;
+            echo $slide_event;
+            }
+          }
+        ?>
 
-      <!--First slide-->
-      <div class="carousel-item active">
-        <img class="view" style="width: inherit; height: inherit;"  src='../img/800-170-800x170-60.png'>
+        </div>
+        <!--/.Slides-->
+
+        <!--Controls-->
+        <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+        <!--/.Controls-->
+
       </div>
-      <!--/First slide-->
-
-      <!--Second slide-->
-      <div class="carousel-item">
-        <img class="view" style="width: inherit; height: inherit;"  src='../img/800-170-800x170-61.png'>
-      </div>
-      <!--/Second slide-->
-
-      <!--Third slide-->
-      <div class="carousel-item">
-        <img class="view" style="width: inherit; height: inherit;"  src='../img/800-170-800x170-62.png'>
-      </div>
-      <!--/Third slide-->
-
-    </div>
-    <!--/.Slides-->
-
-    <!--Controls-->
-    <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-    <!--/.Controls-->
-
-=======
-  <div class="container"> 
-    <div id="myCarousel" class="carousel slide" data-ride="carousel"> 
-      <ol class="carousel-indicators"> 
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li> 
-        <li data-target="#myCarousel" data-slide-to="1"></li> 
-        <li data-target="#myCarousel" data-slide-to="2"></li> 
-      </ol> 
-      <div class="carousel-inner"> 
-        <div class="item active"> 
-          <img src="" style="" alt="Thiết kế 1"> 
-          <div class="carousel-caption"> 
-              <p></p> 
-          </div> 
-        </div> 
-        <div class="item"> 
-          <img src="" alt="Thiết kế 2"> 
-          <div class="carousel-caption"> 
-          </div> 
-        </div> 
-        <div class="item"> <img src="" alt="Thiết kế 3"> 
-          <div class="carousel-caption"> 
-          </div> 
-        </div> 
-      </div> 
-      <a class="left carousel-control" href="" data-slide="prev"> 
-        <span class="glyphicon glyphicon-chevron-left"></span> </a> 
-      <a class="right carousel-control" href="" data-slide="next"> 
-        <span class="glyphicon glyphicon-chevron-right"></span> </a> 
-    </div> 
->>>>>>> d3176507ee3ae505c90a2f79b1581dcd0c0b6ab9
-  </div>
-  <!--/.Carousel Wrapper-->
+      <!--/.Carousel Wrapper-->
 
       <!--Navbar-->
-<<<<<<< HEAD
       <nav class="navbar navbar-expand-lg navbar-dark mdb-color lighten-3 mt-3 mb-5">
-=======
-      <nav class="navbar navbar-expand-lg navbar-dark mdb-color lighten-3 mt-3 mb-5" style="min-width: 900px;" >
->>>>>>> d3176507ee3ae505c90a2f79b1581dcd0c0b6ab9
 
         <!-- Navbar brand -->
         <span class="navbar-brand">Danh mục sản phẩm</span>
@@ -287,34 +263,44 @@
       <!--/.Navbar-->
       <!--Section: Products v.3-->
       <?php
-        include_once("Data.php");
-        $sql_thongtin = "SELECT *FROM thongtin_sanpham";
-        $ketqua = Data::ExecuteQuery($sql_thongtin);
+      $sql_thongtin = "SELECT *FROM thongtin_sanpham";
+      $ketqua = Data::ExecuteQuery($sql_thongtin);
       ?>
       <ul style="
       margin: auto;
       padding: 0;
-<<<<<<< HEAD
-=======
-      max-width: 100%;
-      min-width: 900px;
->>>>>>> d3176507ee3ae505c90a2f79b1581dcd0c0b6ab9
       list-style: none;
       display: flex;
       flex-wrap: wrap;">
       <?php
         while ($row = mysqli_fetch_array($ketqua)) {
+          $Giaban = number_format($row['Giá bán']);
           $chuoi = <<<EOD
               <li class = "list_product">
 
-                <a href="#">
+                <a onclick = "thongtinchitiet()">
                   <img src="{$row['Hình ảnh (url)']}">
 
                   <h3>{$row['Tên sản phẩm']}</h3>
-                  
-                  <div style="height: 15px; color: black; text-align: left; margin: 0 5px; font-size: 12px; text-decoration: line-through;">{$row['Giá niêm yết']}</div>
-                  
-                  <div style="color: red; text-align: left; margin: 0 5px; font-weight: bold; margin-right: 5px;">{$row['Giá bán']}</div>
+EOD;
+          echo $chuoi;
+
+          if(isset($row['Giá niêm yết'])){
+          $Gianiemyet = number_format($row['Giá niêm yết']);
+          $chuoi = <<<EOD
+          <div style="height: 15px; color: black; text-align: left; margin: 0 5px; font-size: 12px; text-decoration: line-through;">{$Gianiemyet}đ</div>
+EOD;
+          echo $chuoi;
+          }
+          if(!isset($row['Giá niêm yết'])){
+            $chuoi = <<<EOD
+            <div style="height: 15px; color: black; text-align: left; margin: 0 5px; font-size: 12px; text-decoration: line-through;"></div>
+EOD;
+            echo $chuoi;
+            }
+          
+          $chuoi = <<<EOD
+                  <div style="color: red; text-align: left; margin: 0 5px; font-weight: bold; margin-right: 5px;">{$Giaban}đ</div>
                   
                   <footer>
                   <div style="width:fit-content; margin: 0 5px; word-wrap: break-word; color: black; text-align: left; font-size: 12px; margin-right: 5px;">{$row['Khuyến mãi']}</div>
@@ -398,17 +384,16 @@ EOD;
 
   <!-- SCRIPTS -->
   <!-- JQuery -->
-  <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
-<<<<<<< HEAD
-  
-=======
-  <script src="../js/jquery-1.11.1.min.js"></script>  
-  <script>   
-    $('#myCarousel').carousel({ 
-        interval:   4000    
-    });
+  <script>
+  function thongtinchitiet() {
+    <?php
+    $GLOBALS = $row['ID'];
+    ?>
+    <meta http-equiv="Product_Page.php" content="ie=edge">
+  }
   </script>
->>>>>>> d3176507ee3ae505c90a2f79b1581dcd0c0b6ab9
+  <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+  
   <!-- Bootstrap tooltips -->
   <script type="text/javascript" src="../js/popper.min.js"></script>
   <!-- Bootstrap core JavaScript -->

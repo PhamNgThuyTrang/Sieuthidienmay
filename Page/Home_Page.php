@@ -8,7 +8,7 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <!-- Bootstrap core CSS -->
-  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/bootstrap/bootstrap.min.css" rel="stylesheet">
   <!-- Material Design Bootstrap -->
   <link href="../css/mdb.min.css" rel="stylesheet">
   <!-- Your custom styles (optional) -->
@@ -108,19 +108,12 @@
   </nav>
   <!-- Navbar -->
 
-<<<<<<< HEAD
-=======
-  <!--Carousel Wrapper-->
->>>>>>> d3176507ee3ae505c90a2f79b1581dcd0c0b6ab9
-  
-
   <!--Main layout-->
   <main>
     <?php
       include_once("Data.php");
     ?>
     <div class="container">
-<<<<<<< HEAD
       <!--Carousel Wrapper-->
       <div id="carousel-example-1z" 
       style="height: auto; width: 100%; margin-top: 40px;"  
@@ -184,57 +177,6 @@ EOD;
 
       </div>
       <!--/.Carousel Wrapper-->
-=======
-    <div id="carousel-example-1z" 
-    style="height: auto; width: 100%; margin-top: 40px;"  
-    class="carousel slide carousel-fade pt-4" data-ride="carousel">
-
-    <!--Indicators-->
-    <ol class="carousel-indicators">
-      <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
-      <li data-target="#carousel-example-1z" data-slide-to="1"></li>
-      <li data-target="#carousel-example-1z" data-slide-to="2"></li>
-    </ol>
-    <!--/.Indicators-->
-
-    <!--Slides-->
-    <div class="carousel-inner" role="listbox">
-
-      <!--First slide-->
-      <div class="carousel-item active">
-        <img class="view" style="width: inherit; height: inherit;"  src='../img/800-170-800x170-60.png'>
-      </div>
-      <!--/First slide-->
-
-      <!--Second slide-->
-      <div class="carousel-item">
-        <img class="view" style="width: inherit; height: inherit;"  src='../img/800-170-800x170-61.png'>
-      </div>
-      <!--/Second slide-->
-
-      <!--Third slide-->
-      <div class="carousel-item">
-        <img class="view" style="width: inherit; height: inherit;"  src='../img/800-170-800x170-62.png'>
-      </div>
-      <!--/Third slide-->
-
-    </div>
-    <!--/.Slides-->
-
-    <!--Controls-->
-    <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-    <!--/.Controls-->
-
-  </div>
-  <!--/.Carousel Wrapper-->
->>>>>>> d3176507ee3ae505c90a2f79b1581dcd0c0b6ab9
 
       <!--Navbar-->
       <nav class="navbar navbar-expand-lg navbar-dark mdb-color lighten-3 mt-3 mb-5">
@@ -336,7 +278,6 @@ EOD;
           $chuoi = <<<EOD
               <li class = "list_product">
 
-<<<<<<< HEAD
                 <a onclick = "thongtinchitiet()">
                   <img src="{$row['Hình ảnh (url)']}">
 
@@ -360,16 +301,6 @@ EOD;
           
           $chuoi = <<<EOD
                   <div style="color: red; text-align: left; margin: 0 5px; font-weight: bold; margin-right: 5px;">{$Giaban}đ</div>
-=======
-                <a href="#">
-                  <img src="{$row['Hình ảnh (url)']}">
-
-                  <h3>{$row['Tên sản phẩm']}</h3>
-                  
-                  <div style="height: 15px; color: black; text-align: left; margin: 0 5px; font-size: 12px; text-decoration: line-through;">{$row['Giá niêm yết']}</div>
-                  
-                  <div style="color: red; text-align: left; margin: 0 5px; font-weight: bold; margin-right: 5px;">{$row['Giá bán']}</div>
->>>>>>> d3176507ee3ae505c90a2f79b1581dcd0c0b6ab9
                   
                   <footer>
                   <div style="width:fit-content; margin: 0 5px; word-wrap: break-word; color: black; text-align: left; font-size: 12px; margin-right: 5px;">{$row['Khuyến mãi']}</div>
@@ -453,7 +384,6 @@ EOD;
 
   <!-- SCRIPTS -->
   <!-- JQuery -->
-<<<<<<< HEAD
   <script>
   function thongtinchitiet() {
     <?php
@@ -462,8 +392,6 @@ EOD;
     <meta http-equiv="Product_Page.php" content="ie=edge">
   }
   </script>
-=======
->>>>>>> d3176507ee3ae505c90a2f79b1581dcd0c0b6ab9
   <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
   
   <!-- Bootstrap tooltips -->

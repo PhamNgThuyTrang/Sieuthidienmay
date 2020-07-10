@@ -20,7 +20,7 @@
                 <div class="col-9 form-group">
                     <select name="MaLoai" class="form-control">
                         <?php
-	include_once("DataProvider.php");
+	include_once("Data.php");
 	$dsLoai = DataProvider::ExecuteQuery("SELECT MaLoai, TenLoai FROM loai");
 	while($loai = mysqli_fetch_array($dsLoai))
 	{
