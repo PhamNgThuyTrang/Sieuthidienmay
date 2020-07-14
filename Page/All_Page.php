@@ -197,7 +197,7 @@ EOD;
           <!-- Links -->
           <ul>
             <li>
-              <p href="All_Page.php">All</p>
+              <p href="Home_Page.php">All</p>
             </li>
 
             <li>
@@ -268,7 +268,7 @@ EOD;
       <!--/.Navbar-->
       <!--Section: Products v.3-->
       <?php
-      $sql_thongtin = "SELECT * FROM `thongtin_sanpham` WHERE `LoaiSP` = 1";
+      $sql_thongtin = "SELECT *FROM thongtin_sanpham";
       $ketqua = Data::ExecuteQuery($sql_thongtin);
       ?>
       <ul style="

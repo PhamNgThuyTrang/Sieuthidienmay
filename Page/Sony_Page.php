@@ -139,25 +139,30 @@ EOD;
         <!--Slides-->
         <div class="carousel-inner" role="listbox">
         <?php
+          $count_slide = 0 ;
           $sql_slides = "SELECT *FROM slide_events";
           $chuoi_slides = Data::ExecuteQuery($sql_slides);
           while ($row = mysqli_fetch_array($chuoi_slides)){
-            if($row['ID'] == 1){
+            if($count_slide != 0){
+              $slide_event = <<<EOD
+              <div class="carousel-item ">
+                <img class="view" style="width: inherit; height: inherit;"  src="{$row['Hinh']}">
+              </div>
+EOD;
+              echo $slide_event;
+              $count_slide++;
+            }
+            if($count_slide == 0){
               $slide_event = <<<EOD
               <div class="carousel-item active ">
                 <img class="view" style="width: inherit; height: inherit;"  src="{$row['Hinh']}">
               </div>
 EOD;
               echo $slide_event;
+              $count_slide++;
+
             }
-            if($row['ID'] != 1){
-            $slide_event = <<<EOD
-            <div class="carousel-item ">
-              <img class="view" style="width: inherit; height: inherit;"  src="{$row['Hinh']}">
-            </div>
-EOD;
-            echo $slide_event;
-            }
+            
           }
         ?>
 
@@ -192,7 +197,7 @@ EOD;
           <!-- Links -->
           <ul>
             <li>
-              <p href="Home_Page.php">All</p>
+              <p href="All_Page.php">All</p>
             </li>
 
             <li>
@@ -263,7 +268,7 @@ EOD;
       <!--/.Navbar-->
       <!--Section: Products v.3-->
       <?php
-      $sql_thongtin = "SELECT *FROM thongtin_sanpham";
+      $sql_thongtin = "SELECT * FROM `thongtin_sanpham` WHERE `LoaiSP` = 1";
       $ketqua = Data::ExecuteQuery($sql_thongtin);
       ?>
       <ul style="
@@ -274,25 +279,25 @@ EOD;
       flex-wrap: wrap;">
       <?php
         while ($row = mysqli_fetch_array($ketqua)) {
-          $Giaban = number_format($row['Giá bán']);
+          $Giaban = number_format($row['GiaBan']);
           $chuoi = <<<EOD
               <li class = "list_product">
 
                 <a onclick = "thongtinchitiet()">
-                  <img src="{$row['Hình ảnh (url)']}">
+                  <img src="{$row['Hinh']}">
 
-                  <h3>{$row['Tên sản phẩm']}</h3>
+                  <h3>{$row['TenSP']}</h3>
 EOD;
           echo $chuoi;
 
-          if(isset($row['Giá niêm yết'])){
-          $Gianiemyet = number_format($row['Giá niêm yết']);
+          if(isset($row['GiaNY'])){
+          $Gianiemyet = number_format($row['GiaNY']);
           $chuoi = <<<EOD
           <div style="height: 15px; color: black; text-align: left; margin: 0 5px; font-size: 12px; text-decoration: line-through;">{$Gianiemyet}đ</div>
 EOD;
           echo $chuoi;
           }
-          if(!isset($row['Giá niêm yết'])){
+          if(!isset($row['GiaNY'])){
             $chuoi = <<<EOD
             <div style="height: 15px; color: black; text-align: left; margin: 0 5px; font-size: 12px; text-decoration: line-through;"></div>
 EOD;
@@ -303,7 +308,7 @@ EOD;
                   <div style="color: red; text-align: left; margin: 0 5px; font-weight: bold; margin-right: 5px;">{$Giaban}đ</div>
                   
                   <footer>
-                  <div style="width:fit-content; margin: 0 5px; word-wrap: break-word; color: black; text-align: left; font-size: 12px; margin-right: 5px;">{$row['Khuyến mãi']}</div>
+                  <div style="width:fit-content; margin: 0 5px; word-wrap: break-word; color: black; text-align: left; font-size: 12px; margin-right: 5px;">{$row['KhuyenMai']}</div>
                   </footer>
                 </a>
               </li>
@@ -384,14 +389,7 @@ EOD;
 
   <!-- SCRIPTS -->
   <!-- JQuery -->
-  <script>
-  function thongtinchitiet() {
-    <?php
-    $GLOBALS = $row['ID'];
-    ?>
-    <meta http-equiv="Product_Page.php" content="ie=edge">
-  }
-  </script>
+  
   <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
   
   <!-- Bootstrap tooltips -->
@@ -405,6 +403,7 @@ EOD;
     // Animations initialization
     new WOW().init();
   </script>
+  
 </body>
 
 </html>

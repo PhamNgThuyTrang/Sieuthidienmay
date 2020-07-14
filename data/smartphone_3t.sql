@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th7 10, 2020 lúc 11:04 AM
+-- Thời gian đã tạo: Th7 14, 2020 lúc 04:21 PM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.4.6
 
@@ -20,6 +20,54 @@ SET time_zone = "+00:00";
 --
 -- Cơ sở dữ liệu: `smartphone_3t`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `loaisp`
+--
+
+CREATE TABLE `loaisp` (
+  `ID` int(11) NOT NULL,
+  `LoaiSP` varchar(20) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `loaisp`
+--
+
+INSERT INTO `loaisp` (`ID`, `LoaiSP`) VALUES
+(1, 'Điện thoại'),
+(2, 'Máy cũ'),
+(3, 'Tai nghe'),
+(4, 'Cáp sạc'),
+(5, 'Sạc dự phòng'),
+(6, 'Ốp lưng');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `nhanhieu`
+--
+
+CREATE TABLE `nhanhieu` (
+  `ID` int(11) NOT NULL,
+  `TenNH` varchar(20) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `nhanhieu`
+--
+
+INSERT INTO `nhanhieu` (`ID`, `TenNH`) VALUES
+(1, 'IPhone'),
+(2, 'Samsung'),
+(3, 'Sony'),
+(4, 'Oppo'),
+(5, 'Vivo'),
+(6, 'Huawei'),
+(7, 'Vsmart'),
+(8, 'Xiaomi');
 
 -- --------------------------------------------------------
 
@@ -105,13 +153,14 @@ INSERT INTO `thongsokithuat` (`ID`, `Màn hình`, `Hệ điều hành`, `CPU`, `
 
 CREATE TABLE `thongtin_sanpham` (
   `ID` tinyint(4) NOT NULL,
-  `Tên sản phẩm` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `Nhãn hiệu` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `Hình ảnh (url)` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `Giá niêm yết` int(11) DEFAULT NULL,
-  `Giá bán` int(11) NOT NULL,
-  `Khuyến mãi` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `Ngày nhập` date NOT NULL,
+  `TenSP` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `LoaiSP` int(11) NOT NULL,
+  `Nhanhieu` int(20) NOT NULL,
+  `Hinh` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `GiaNY` int(11) DEFAULT NULL,
+  `GiaBan` int(11) NOT NULL,
+  `KhuyenMai` text COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Ngaynhap` date NOT NULL,
   `SoLuong` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -119,27 +168,39 @@ CREATE TABLE `thongtin_sanpham` (
 -- Đang đổ dữ liệu cho bảng `thongtin_sanpham`
 --
 
-INSERT INTO `thongtin_sanpham` (`ID`, `Tên sản phẩm`, `Nhãn hiệu`, `Hình ảnh (url)`, `Giá niêm yết`, `Giá bán`, `Khuyến mãi`, `Ngày nhập`, `SoLuong`) VALUES
-(1, 'iPhone 11 Pro Max 64GB', 'iPhone', '../img/list_product/iphone-11-pro-max-256gb-black-600x600.jpg', 33990000, 30049000, 'Giảm ngay 2 triệu (đã trừ vào giá)', '2019-10-12', 0),
-(2, 'OPPO A52', 'OPPO', 'https://cdn.tgdd.vn/Products/Images/42/220649/oppo-a52-black-600x600-400x400.jpg', 5990000, 5690000, '', '2019-10-12', 0),
-(3, 'Samsung Galaxy A21s (6GB/64GB)', 'Samsung', 'https://cdn.tgdd.vn/Products/Images/42/219314/samsung-galaxy-a21s-xanh-600x600-400x400.jpg', NULL, 5690000, '', '2019-08-06', 0),
-(4, 'Xiaomi Redmi Note 9S', 'Xiaomi', 'https://cdn.tgdd.vn/Products/Images/42/214924/xiaomi-redmi-note-9s-400x460-400x460.png', NULL, 5990000, '', '2020-01-16', 0),
-(5, 'Vivo V19 Neo', 'Vivo', 'https://cdn.tgdd.vn/Products/Images/42/220977/vivo-v19-neo-den-600x600-200x200.jpg', 7690000, 7390000, '', '2019-10-12', 0),
-(6, 'Vsmart Active 3 (6GB/64GB)', 'Vsmart', 'https://cdn.tgdd.vn/Products/Images/42/217438/vsmart-active-3-6gb-emerald-green-600x600-400x400.jpg', 3990000, 3790000, ' Tặng thêm 01 tháng bảo hành chính hãng', '2020-02-20', 0),
-(7, 'iPhone 11 Pro Max 512GB', 'iPhone', '../img/list_product/iphone-11-pro-max-512gb-gold-600x600.jpg', 43990000, 40490000, 'Giảm ngay 2 triệu (đã trừ vào giá)\r\n', '2020-01-16', 0),
-(8, 'iPhone 11 Pro Max 256GB', 'iPhone', '../img/list_product/iphone-11-pro-max-256gb-black-600x600.jpg', 37990000, 35490000, 'Giảm ngay 2 triệu (đã trừ vào giá)', '2020-02-20', 0),
-(9, 'Vsmart Joy 3 (4GB/64GB)', 'Vsmart', 'https://cdn.tgdd.vn/Products/Images/42/219208/vsmart-joy-3-4gb-den-600x600-600x600.jpg', 3290000, 3140000, 'Tặng thêm 01 tháng bảo hành chính hãng', '2020-01-16', 0),
-(10, 'iPhone 11 Pro 256GB', 'iPhone', '../img/list_product/iphone-11-pro-max-256gb-black-600x600.jpg', 34990000, 34490000, 'Giảm ngay 500.000đ (đã trừ vào giá)<br>\r\nMua online:\r\nGiảm ngay 2 triệu (áp dụng đặt và nhận hàng từ 4 - 7/6)', '2019-08-06', 0),
-(11, 'iPhone Xs Max 64GB', 'iPhone', '../img/list_product/iphone-xs-max-gold-600x600.jpg', 25990000, 23990000, 'Giảm ngay 2 triệu (đã trừ vào giá)', '2019-10-12', 0),
-(12, 'iPhone Xs Max 256GB', 'iPhone', '../img/list_product/iphone-xs-max-256gb-white-600x600.jpg', 30990000, 25990000, 'Giảm ngay 5 triệu (đã trừ vào giá, không áp dụng khi mua trả góp 0%)\r\n', '2019-08-06', 0),
-(13, 'Samsung Galaxy S20+', 'Samsung', 'https://cdn.tgdd.vn/Products/Images/42/217936/samsung-galaxy-s20-plus-400x460-fix-400x460.png', 23990000, 18990000, 'Tặng tiền cước 5 triệu (áp dụng đặt và nhận hàng từ 5 - 7/6) (đã trừ vào giá)', '2020-05-12', 0),
-(14, 'Samsung Galaxy S20', 'Samsung', 'https://cdn.tgdd.vn/Products/Images/42/217935/samsung-galaxy-s20-400x460-hong-400x460.png', 21490000, 18490000, 'Tặng tiền cước 3 triệu (áp dụng đặt và nhận hàng từ 1 - 15/6) (đã trừ vào giá)', '2020-02-20', 0),
-(15, 'OPPO Reno 3', 'OPPO', 'https://cdn.tgdd.vn/Products/Images/42/213591/oppo-reno3-trang-600x600-600x600.jpg', 8990000, 8490000, 'Giảm ngay 500.000đ (đã trừ vào giá)', '2019-10-12', 0),
-(16, 'iPhone 11 64GB', 'iPhone ', '../img/list_product/iphone-11-red-600x600.jpg', 20990000, 21990000, 'Giảm ngay 1 triệu (đã trừ vào giá)', '0000-00-00', 0);
+INSERT INTO `thongtin_sanpham` (`ID`, `TenSP`, `LoaiSP`, `Nhanhieu`, `Hinh`, `GiaNY`, `GiaBan`, `KhuyenMai`, `Ngaynhap`, `SoLuong`) VALUES
+(1, 'iPhone 11 Pro Max 64GB', 1, 1, '../img/list_product/iphone-11-pro-max-256gb-black-600x600.jpg', 33990000, 30049000, 'Giảm ngay 2 triệu (đã trừ vào giá)', '2019-10-12', 0),
+(2, 'OPPO A52', 1, 4, 'https://cdn.tgdd.vn/Products/Images/42/220649/oppo-a52-black-600x600-400x400.jpg', 5990000, 5690000, '', '2019-10-12', 0),
+(3, 'Samsung Galaxy A21s (6GB/64GB)', 1, 2, 'https://cdn.tgdd.vn/Products/Images/42/219314/samsung-galaxy-a21s-xanh-600x600-400x400.jpg', NULL, 5690000, '', '2019-08-06', 0),
+(4, 'Xiaomi Redmi Note 9S', 1, 8, 'https://cdn.tgdd.vn/Products/Images/42/214924/xiaomi-redmi-note-9s-400x460-400x460.png', NULL, 5990000, '', '2020-01-16', 0),
+(5, 'Vivo V19 Neo', 1, 5, 'https://cdn.tgdd.vn/Products/Images/42/220977/vivo-v19-neo-den-600x600-200x200.jpg', 7690000, 7390000, '', '2019-10-12', 0),
+(6, 'Vsmart Active 3 (6GB/64GB)', 1, 7, 'https://cdn.tgdd.vn/Products/Images/42/217438/vsmart-active-3-6gb-emerald-green-600x600-400x400.jpg', 3990000, 3790000, ' Tặng thêm 01 tháng bảo hành chính hãng', '2020-02-20', 0),
+(7, 'iPhone 11 Pro Max 512GB', 1, 1, '../img/list_product/iphone-11-pro-max-512gb-gold-600x600.jpg', 43990000, 40490000, 'Giảm ngay 2 triệu (đã trừ vào giá)\r\n', '2020-01-16', 0),
+(8, 'iPhone 11 Pro Max 256GB', 1, 1, '../img/list_product/iphone-11-pro-max-256gb-black-600x600.jpg', 37990000, 35490000, 'Giảm ngay 2 triệu (đã trừ vào giá)', '2020-02-20', 0),
+(9, 'Vsmart Joy 3 (4GB/64GB)', 1, 7, 'https://cdn.tgdd.vn/Products/Images/42/219208/vsmart-joy-3-4gb-den-600x600-600x600.jpg', 3290000, 3140000, 'Tặng thêm 01 tháng bảo hành chính hãng', '2020-01-16', 0),
+(10, 'iPhone 11 Pro 256GB', 1, 1, '../img/list_product/iphone-11-pro-max-256gb-black-600x600.jpg', 34990000, 34490000, 'Giảm ngay 500.000đ (đã trừ vào giá)<br>\r\nMua online:\r\nGiảm ngay 2 triệu (áp dụng đặt và nhận hàng từ 4 - 7/6)', '2019-08-06', 0),
+(11, 'iPhone Xs Max 64GB', 1, 1, '../img/list_product/iphone-xs-max-gold-600x600.jpg', 25990000, 23990000, 'Giảm ngay 2 triệu (đã trừ vào giá)', '2019-10-12', 0),
+(12, 'iPhone Xs Max 256GB', 1, 1, '../img/list_product/iphone-xs-max-256gb-white-600x600.jpg', 30990000, 25990000, 'Giảm ngay 5 triệu (đã trừ vào giá, không áp dụng khi mua trả góp 0%)\r\n', '2019-08-06', 0),
+(13, 'Samsung Galaxy S20+', 1, 2, 'https://cdn.tgdd.vn/Products/Images/42/217936/samsung-galaxy-s20-plus-400x460-fix-400x460.png', 23990000, 18990000, 'Tặng tiền cước 5 triệu (áp dụng đặt và nhận hàng từ 5 - 7/6) (đã trừ vào giá)', '2020-05-12', 0),
+(14, 'Samsung Galaxy S20', 1, 2, 'https://cdn.tgdd.vn/Products/Images/42/217935/samsung-galaxy-s20-400x460-hong-400x460.png', 21490000, 18490000, 'Tặng tiền cước 3 triệu (áp dụng đặt và nhận hàng từ 1 - 15/6) (đã trừ vào giá)', '2020-02-20', 0),
+(15, 'OPPO Reno 3', 1, 4, 'https://cdn.tgdd.vn/Products/Images/42/213591/oppo-reno3-trang-600x600-600x600.jpg', 8990000, 8490000, 'Giảm ngay 500.000đ (đã trừ vào giá)', '2019-10-12', 0),
+(16, 'iPhone 11 64GB', 1, 1, '../img/list_product/iphone-11-red-600x600.jpg', 20990000, 21990000, 'Giảm ngay 1 triệu (đã trừ vào giá)', '0000-00-00', 0);
 
 --
 -- Chỉ mục cho các bảng đã đổ
 --
+
+--
+-- Chỉ mục cho bảng `loaisp`
+--
+ALTER TABLE `loaisp`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Chỉ mục cho bảng `nhanhieu`
+--
+ALTER TABLE `nhanhieu`
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Chỉ mục cho bảng `slide_events`
@@ -165,11 +226,25 @@ ALTER TABLE `thongsokithuat`
 -- Chỉ mục cho bảng `thongtin_sanpham`
 --
 ALTER TABLE `thongtin_sanpham`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `LoaiSP` (`LoaiSP`),
+  ADD KEY `Nhanhieu` (`Nhanhieu`);
 
 --
 -- AUTO_INCREMENT cho các bảng đã đổ
 --
+
+--
+-- AUTO_INCREMENT cho bảng `loaisp`
+--
+ALTER TABLE `loaisp`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT cho bảng `nhanhieu`
+--
+ALTER TABLE `nhanhieu`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `slide_events`
@@ -204,6 +279,13 @@ ALTER TABLE `slide_sanpham`
 --
 ALTER TABLE `thongsokithuat`
   ADD CONSTRAINT `thongsokithuat_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `thongtin_sanpham` (`ID`);
+
+--
+-- Các ràng buộc cho bảng `thongtin_sanpham`
+--
+ALTER TABLE `thongtin_sanpham`
+  ADD CONSTRAINT `thongtin_sanpham_ibfk_1` FOREIGN KEY (`LoaiSP`) REFERENCES `loaisp` (`ID`),
+  ADD CONSTRAINT `thongtin_sanpham_ibfk_2` FOREIGN KEY (`Nhanhieu`) REFERENCES `nhanhieu` (`ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
