@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th7 16, 2020 lúc 09:00 AM
+-- Thời gian đã tạo: Th7 17, 2020 lúc 10:54 AM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.4.6
 
@@ -20,6 +20,20 @@ SET time_zone = "+00:00";
 --
 -- Cơ sở dữ liệu: `smartphone_3t`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `comment`
+--
+
+CREATE TABLE `comment` (
+  `id` int(11) NOT NULL,
+  `idUser` tinyint(4) NOT NULL,
+  `idSanpham` tinyint(4) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `update_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -116,7 +130,9 @@ INSERT INTO `slide_sanpham` (`ID`, `ID_sanpham`, `Hinh`) VALUES
 --
 
 CREATE TABLE `thongsokithuat` (
-  `ID` tinyint(10) NOT NULL,
+  `ID` tinyint(4) NOT NULL,
+  `Màu Sắc` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `idSanPham` tinyint(4) NOT NULL,
   `Màn hình` text COLLATE utf8_unicode_ci DEFAULT NULL,
   `Hệ điều hành` text COLLATE utf8_unicode_ci DEFAULT NULL,
   `CPU` text COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -132,18 +148,18 @@ CREATE TABLE `thongsokithuat` (
 -- Đang đổ dữ liệu cho bảng `thongsokithuat`
 --
 
-INSERT INTO `thongsokithuat` (`ID`, `Màn hình`, `Hệ điều hành`, `CPU`, `Ram`, `Bộ nhớ`, `Camera trước`, `Camera sau`, `Thẻ sim`, `Dung lượng pin`) VALUES
-(1, '6.5\", Super Retina XDR', 'iOS 13', 'Apple A13 Bionic 6 nhân', '4 GB', '64 GB', '12 MP', '3 camera 12 MP', '1 eSIM & 1 Nano SIM, Hỗ trợ 4G', '3969 mAh, có sạc nhanh'),
-(2, '6.5\", Full HD+', NULL, 'Snapdragon 665 8 nhân', '6 GB', '128 GB', '16 MP', 'Chính 12 MP & Phụ 8 MP, 2 MP, 2 MP', NULL, '5000 mAh, có sạc nhanh'),
-(4, '6.67\", Full HD+', NULL, 'Snapdragon 720G 8 nhân', '6 GB', '128 GB', '16 MP', 'Chính 48 MP & Phụ 8 MP, 5MP, 2MP', NULL, '5020 mAh, có sạc nhanh'),
-(5, '6.44\", Full HD+', NULL, 'Snapdragon 675 8 nhân', '8 GB', '128 GB', '32 MP', 'Chính 48 MP & Phụ 8 MP, 2MP, 2MP', NULL, '4500 mAh, có sạc nhanh'),
-(6, '6.39\", Full HD+', NULL, 'MediaTek Helio P60 8 nhân', '6 GB', '64 GB', '16 MP', 'Chính 48 MP & Phụ 8 MP, 2 MP', NULL, '4020 mAh, có sạc nhanh'),
-(7, '6.5\", Super Retina XDR', NULL, 'Apple A13 Bionic 6 nhân', '4 GB', '64 GB', '12 MP', '3 camera 12 MP', NULL, '3969 mAh, có sạc nhanh'),
-(8, '6.5\", Super Retina XDR', NULL, 'Apple A13 Bionic 6 nhân', '4 GB', '256 GB', '12 MP', '3 camera 12 MP', NULL, '3969 mAh, có sạc nhanh'),
-(9, '6.5\", HD+', NULL, 'Snapdragon 632 8 nhân', '4 GB', '64 GB', '8 MP', 'Chính 13 MP & Phụ 8 MP, 2MP', NULL, '5000 mAh, có sạc nhanh'),
-(10, '5.8\", Super Retina XDR', NULL, 'Apple A13 Bionic 6 nhân', '4 GB', '256 GB', '12 MP', '3 camera 12 MP', NULL, '3046 mAh, có sạc nhanh'),
-(11, '6.5\", Super Retina', NULL, 'Apple A12 Bionic 6 nhân', '4 GB', '64 GB', '7 MP', 'Chính 12 MP & Phụ 12 MP', NULL, '3174 mAh, có sạc nhanh'),
-(12, '6.5\", Super Retina', NULL, 'Apple A12 Bionic 6 nhân', '4 GB', '256 GB', '7 MP', 'Chính 12 MP & Phụ 12 MP', NULL, '3174 mAh, có sạc nhanh');
+INSERT INTO `thongsokithuat` (`ID`, `Màu Sắc`, `idSanPham`, `Màn hình`, `Hệ điều hành`, `CPU`, `Ram`, `Bộ nhớ`, `Camera trước`, `Camera sau`, `Thẻ sim`, `Dung lượng pin`) VALUES
+(1, '', 1, '6.5\", Super Retina XDR', 'iOS 13', 'Apple A13 Bionic 6 nhân', '4 GB', '64 GB', '12 MP', '3 camera 12 MP', '1 eSIM & 1 Nano SIM, Hỗ trợ 4G', '3969 mAh, có sạc nhanh'),
+(2, '', 2, '6.5\", Full HD+', NULL, 'Snapdragon 665 8 nhân', '6 GB', '128 GB', '16 MP', 'Chính 12 MP & Phụ 8 MP, 2 MP, 2 MP', NULL, '5000 mAh, có sạc nhanh'),
+(3, '', 4, '6.67\", Full HD+', NULL, 'Snapdragon 720G 8 nhân', '6 GB', '128 GB', '16 MP', 'Chính 48 MP & Phụ 8 MP, 5MP, 2MP', NULL, '5020 mAh, có sạc nhanh'),
+(4, '', 5, '6.44\", Full HD+', NULL, 'Snapdragon 675 8 nhân', '8 GB', '128 GB', '32 MP', 'Chính 48 MP & Phụ 8 MP, 2MP, 2MP', NULL, '4500 mAh, có sạc nhanh'),
+(5, '', 6, '6.39\", Full HD+', NULL, 'MediaTek Helio P60 8 nhân', '6 GB', '64 GB', '16 MP', 'Chính 48 MP & Phụ 8 MP, 2 MP', NULL, '4020 mAh, có sạc nhanh'),
+(6, '', 7, '6.5\", Super Retina XDR', NULL, 'Apple A13 Bionic 6 nhân', '4 GB', '64 GB', '12 MP', '3 camera 12 MP', NULL, '3969 mAh, có sạc nhanh'),
+(7, '', 8, '6.5\", Super Retina XDR', NULL, 'Apple A13 Bionic 6 nhân', '4 GB', '256 GB', '12 MP', '3 camera 12 MP', NULL, '3969 mAh, có sạc nhanh'),
+(8, '', 9, '6.5\", HD+', NULL, 'Snapdragon 632 8 nhân', '4 GB', '64 GB', '8 MP', 'Chính 13 MP & Phụ 8 MP, 2MP', NULL, '5000 mAh, có sạc nhanh'),
+(9, '', 10, '5.8\", Super Retina XDR', NULL, 'Apple A13 Bionic 6 nhân', '4 GB', '256 GB', '12 MP', '3 camera 12 MP', NULL, '3046 mAh, có sạc nhanh'),
+(10, '', 11, '6.5\", Super Retina', NULL, 'Apple A12 Bionic 6 nhân', '4 GB', '64 GB', '7 MP', 'Chính 12 MP & Phụ 12 MP', NULL, '3174 mAh, có sạc nhanh'),
+(11, '', 12, '6.5\", Super Retina', NULL, 'Apple A12 Bionic 6 nhân', '4 GB', '256 GB', '7 MP', 'Chính 12 MP & Phụ 12 MP', NULL, '3174 mAh, có sạc nhanh');
 
 -- --------------------------------------------------------
 
@@ -186,9 +202,32 @@ INSERT INTO `thongtin_sanpham` (`ID`, `TenSP`, `LoaiSP`, `Nhanhieu`, `Hinh`, `Gi
 (15, 'OPPO Reno 3', 1, 4, 'https://cdn.tgdd.vn/Products/Images/42/213591/oppo-reno3-trang-600x600-600x600.jpg', 8990000, 8490000, 'Giảm ngay 500.000đ (đã trừ vào giá)', '2019-10-12', 0),
 (16, 'iPhone 11 64GB', 1, 1, '../img/list_product/iphone-11-red-600x600.jpg', 20990000, 21990000, 'Giảm ngay 1 triệu (đã trừ vào giá)', '0000-00-00', 0);
 
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `users`
+--
+
+CREATE TABLE `users` (
+  `id` tinyint(4) NOT NULL,
+  `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `Level` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 --
 -- Chỉ mục cho các bảng đã đổ
 --
+
+--
+-- Chỉ mục cho bảng `comment`
+--
+ALTER TABLE `comment`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `comment_idUser` (`idUser`),
+  ADD KEY `comment_idsanpham` (`idSanpham`);
 
 --
 -- Chỉ mục cho bảng `loaisp`
@@ -213,14 +252,14 @@ ALTER TABLE `slide_events`
 --
 ALTER TABLE `slide_sanpham`
   ADD PRIMARY KEY (`ID`),
-  ADD KEY `ID_sanpham` (`ID_sanpham`);
+  ADD KEY `slideSanpham_IDsanpham` (`ID_sanpham`);
 
 --
 -- Chỉ mục cho bảng `thongsokithuat`
 --
 ALTER TABLE `thongsokithuat`
   ADD PRIMARY KEY (`ID`),
-  ADD UNIQUE KEY `ID` (`ID`);
+  ADD KEY `thongsokithuat_sanpham` (`idSanPham`);
 
 --
 -- Chỉ mục cho bảng `thongtin_sanpham`
@@ -229,6 +268,14 @@ ALTER TABLE `thongtin_sanpham`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `LoaiSP` (`LoaiSP`),
   ADD KEY `Nhanhieu` (`Nhanhieu`);
+
+--
+-- Chỉ mục cho bảng `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- AUTO_INCREMENT cho các bảng đã đổ
@@ -259,33 +306,52 @@ ALTER TABLE `slide_sanpham`
   MODIFY `ID` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT cho bảng `thongsokithuat`
+--
+ALTER TABLE `thongsokithuat`
+  MODIFY `ID` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
 -- AUTO_INCREMENT cho bảng `thongtin_sanpham`
 --
 ALTER TABLE `thongtin_sanpham`
   MODIFY `ID` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
+-- AUTO_INCREMENT cho bảng `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` tinyint(4) NOT NULL AUTO_INCREMENT;
+
+--
 -- Các ràng buộc cho các bảng đã đổ
 --
+
+--
+-- Các ràng buộc cho bảng `comment`
+--
+ALTER TABLE `comment`
+  ADD CONSTRAINT `comment_idUser` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `comment_idsanpham` FOREIGN KEY (`idSanpham`) REFERENCES `thongtin_sanpham` (`ID`);
 
 --
 -- Các ràng buộc cho bảng `slide_sanpham`
 --
 ALTER TABLE `slide_sanpham`
-  ADD CONSTRAINT `slide_sanpham_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `thongtin_sanpham` (`ID`);
+  ADD CONSTRAINT `slideSanpham_IDsanpham` FOREIGN KEY (`ID_sanpham`) REFERENCES `thongtin_sanpham` (`ID`);
 
 --
 -- Các ràng buộc cho bảng `thongsokithuat`
 --
 ALTER TABLE `thongsokithuat`
-  ADD CONSTRAINT `thongsokithuat_ibfk_1` FOREIGN KEY (`ID`) REFERENCES `thongtin_sanpham` (`ID`);
+  ADD CONSTRAINT `thongsokithuat_sanpham` FOREIGN KEY (`idSanPham`) REFERENCES `thongtin_sanpham` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `thongtin_sanpham`
 --
 ALTER TABLE `thongtin_sanpham`
-  ADD CONSTRAINT `thongtin_sanpham_ibfk_1` FOREIGN KEY (`LoaiSP`) REFERENCES `loaisp` (`ID`),
-  ADD CONSTRAINT `thongtin_sanpham_ibfk_2` FOREIGN KEY (`Nhanhieu`) REFERENCES `nhanhieu` (`ID`);
+  ADD CONSTRAINT `sanpham_loaisp` FOREIGN KEY (`LoaiSP`) REFERENCES `loaisp` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `sanpham_nhanhieu` FOREIGN KEY (`Nhanhieu`) REFERENCES `nhanhieu` (`ID`) ON DELETE NO ACTION ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

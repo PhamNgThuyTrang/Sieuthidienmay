@@ -16,9 +16,7 @@
   <link href="../css/style.min.css" rel="stylesheet">
   <link href="../css/style.css" rel="stylesheet">
   <link href="../css/menu.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">  
   <style type="text/css">
   
     html,
@@ -27,6 +25,7 @@
     .carousel {
       height: 60vh;
     }
+    
 
     @media (max-width: 740px) {
 
@@ -96,7 +95,7 @@
         <!-- Right -->
         <ul class="navbar-nav nav-flex-icons">
           <li class="nav-item">
-            <a class="nav-link waves-effect">
+            <a class="nav-link waves-effect" href = "Checkout_Page.php">
               <span class="badge red z-depth-1 mr-1"> 1 </span>
               <i class="fas fa-shopping-cart"></i>
               <span class="clearfix d-none d-sm-inline-block"> Cart </span>
@@ -275,7 +274,8 @@ EOD;
       padding: 0;
       list-style: none;
       display: flex;
-      flex-wrap: wrap;">
+      flex-wrap: wrap;"
+      >
       <?php
         include_once('Data.php');
         $page = 1;//khởi tạo trang ban đầu
@@ -299,11 +299,12 @@ EOD;
         //lấy ra danh sách và gán vào biến $arrs:
         $arrs = Data::ExecuteQuery($sql_arrs);
         foreach($arrs as $arr) {
+          $title = str_replace(' ','-',$arr['TenSP']);
           $Giaban = number_format($arr['GiaBan']);
           $chuoi = <<<EOD
-              <li class = "list_product" href = "Product_Page.php">
+              <li class = "list_product">
 
-                <a onclick = "thongtinchitiet()">
+                <a href = "Product_Page.php?title=$title&link={$arr['ID']}">
                   <img src="{$arr['Hinh']}">
 
                   <h3>{$arr['TenSP']}</h3>
@@ -390,10 +391,9 @@ EOD;
   <!--/.Footer-->
 
   <!-- SCRIPTS -->
+ 
   <!-- JQuery -->
-  
   <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
-  
   <!-- Bootstrap tooltips -->
   <script type="text/javascript" src="../js/popper.min.js"></script>
   <!-- Bootstrap core JavaScript -->
@@ -405,7 +405,6 @@ EOD;
     // Animations initialization
     new WOW().init();
   </script>
-  
 </body>
 
 </html>
