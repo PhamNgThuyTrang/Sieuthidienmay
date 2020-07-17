@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th7 17, 2020 lúc 10:54 AM
+-- Thời gian đã tạo: Th7 17, 2020 lúc 11:00 AM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.4.6
 
@@ -132,6 +132,7 @@ INSERT INTO `slide_sanpham` (`ID`, `ID_sanpham`, `Hinh`) VALUES
 CREATE TABLE `thongsokithuat` (
   `ID` tinyint(4) NOT NULL,
   `Màu Sắc` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `Mausac_img` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `idSanPham` tinyint(4) NOT NULL,
   `Màn hình` text COLLATE utf8_unicode_ci DEFAULT NULL,
   `Hệ điều hành` text COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -148,18 +149,18 @@ CREATE TABLE `thongsokithuat` (
 -- Đang đổ dữ liệu cho bảng `thongsokithuat`
 --
 
-INSERT INTO `thongsokithuat` (`ID`, `Màu Sắc`, `idSanPham`, `Màn hình`, `Hệ điều hành`, `CPU`, `Ram`, `Bộ nhớ`, `Camera trước`, `Camera sau`, `Thẻ sim`, `Dung lượng pin`) VALUES
-(1, '', 1, '6.5\", Super Retina XDR', 'iOS 13', 'Apple A13 Bionic 6 nhân', '4 GB', '64 GB', '12 MP', '3 camera 12 MP', '1 eSIM & 1 Nano SIM, Hỗ trợ 4G', '3969 mAh, có sạc nhanh'),
-(2, '', 2, '6.5\", Full HD+', NULL, 'Snapdragon 665 8 nhân', '6 GB', '128 GB', '16 MP', 'Chính 12 MP & Phụ 8 MP, 2 MP, 2 MP', NULL, '5000 mAh, có sạc nhanh'),
-(3, '', 4, '6.67\", Full HD+', NULL, 'Snapdragon 720G 8 nhân', '6 GB', '128 GB', '16 MP', 'Chính 48 MP & Phụ 8 MP, 5MP, 2MP', NULL, '5020 mAh, có sạc nhanh'),
-(4, '', 5, '6.44\", Full HD+', NULL, 'Snapdragon 675 8 nhân', '8 GB', '128 GB', '32 MP', 'Chính 48 MP & Phụ 8 MP, 2MP, 2MP', NULL, '4500 mAh, có sạc nhanh'),
-(5, '', 6, '6.39\", Full HD+', NULL, 'MediaTek Helio P60 8 nhân', '6 GB', '64 GB', '16 MP', 'Chính 48 MP & Phụ 8 MP, 2 MP', NULL, '4020 mAh, có sạc nhanh'),
-(6, '', 7, '6.5\", Super Retina XDR', NULL, 'Apple A13 Bionic 6 nhân', '4 GB', '64 GB', '12 MP', '3 camera 12 MP', NULL, '3969 mAh, có sạc nhanh'),
-(7, '', 8, '6.5\", Super Retina XDR', NULL, 'Apple A13 Bionic 6 nhân', '4 GB', '256 GB', '12 MP', '3 camera 12 MP', NULL, '3969 mAh, có sạc nhanh'),
-(8, '', 9, '6.5\", HD+', NULL, 'Snapdragon 632 8 nhân', '4 GB', '64 GB', '8 MP', 'Chính 13 MP & Phụ 8 MP, 2MP', NULL, '5000 mAh, có sạc nhanh'),
-(9, '', 10, '5.8\", Super Retina XDR', NULL, 'Apple A13 Bionic 6 nhân', '4 GB', '256 GB', '12 MP', '3 camera 12 MP', NULL, '3046 mAh, có sạc nhanh'),
-(10, '', 11, '6.5\", Super Retina', NULL, 'Apple A12 Bionic 6 nhân', '4 GB', '64 GB', '7 MP', 'Chính 12 MP & Phụ 12 MP', NULL, '3174 mAh, có sạc nhanh'),
-(11, '', 12, '6.5\", Super Retina', NULL, 'Apple A12 Bionic 6 nhân', '4 GB', '256 GB', '7 MP', 'Chính 12 MP & Phụ 12 MP', NULL, '3174 mAh, có sạc nhanh');
+INSERT INTO `thongsokithuat` (`ID`, `Màu Sắc`, `Mausac_img`, `idSanPham`, `Màn hình`, `Hệ điều hành`, `CPU`, `Ram`, `Bộ nhớ`, `Camera trước`, `Camera sau`, `Thẻ sim`, `Dung lượng pin`) VALUES
+(1, '', '', 1, '6.5\", Super Retina XDR', 'iOS 13', 'Apple A13 Bionic 6 nhân', '4 GB', '64 GB', '12 MP', '3 camera 12 MP', '1 eSIM & 1 Nano SIM, Hỗ trợ 4G', '3969 mAh, có sạc nhanh'),
+(2, '', '', 2, '6.5\", Full HD+', NULL, 'Snapdragon 665 8 nhân', '6 GB', '128 GB', '16 MP', 'Chính 12 MP & Phụ 8 MP, 2 MP, 2 MP', NULL, '5000 mAh, có sạc nhanh'),
+(3, '', '', 4, '6.67\", Full HD+', NULL, 'Snapdragon 720G 8 nhân', '6 GB', '128 GB', '16 MP', 'Chính 48 MP & Phụ 8 MP, 5MP, 2MP', NULL, '5020 mAh, có sạc nhanh'),
+(4, '', '', 5, '6.44\", Full HD+', NULL, 'Snapdragon 675 8 nhân', '8 GB', '128 GB', '32 MP', 'Chính 48 MP & Phụ 8 MP, 2MP, 2MP', NULL, '4500 mAh, có sạc nhanh'),
+(5, '', '', 6, '6.39\", Full HD+', NULL, 'MediaTek Helio P60 8 nhân', '6 GB', '64 GB', '16 MP', 'Chính 48 MP & Phụ 8 MP, 2 MP', NULL, '4020 mAh, có sạc nhanh'),
+(6, '', '', 7, '6.5\", Super Retina XDR', NULL, 'Apple A13 Bionic 6 nhân', '4 GB', '64 GB', '12 MP', '3 camera 12 MP', NULL, '3969 mAh, có sạc nhanh'),
+(7, '', '', 8, '6.5\", Super Retina XDR', NULL, 'Apple A13 Bionic 6 nhân', '4 GB', '256 GB', '12 MP', '3 camera 12 MP', NULL, '3969 mAh, có sạc nhanh'),
+(8, '', '', 9, '6.5\", HD+', NULL, 'Snapdragon 632 8 nhân', '4 GB', '64 GB', '8 MP', 'Chính 13 MP & Phụ 8 MP, 2MP', NULL, '5000 mAh, có sạc nhanh'),
+(9, '', '', 10, '5.8\", Super Retina XDR', NULL, 'Apple A13 Bionic 6 nhân', '4 GB', '256 GB', '12 MP', '3 camera 12 MP', NULL, '3046 mAh, có sạc nhanh'),
+(10, '', '', 11, '6.5\", Super Retina', NULL, 'Apple A12 Bionic 6 nhân', '4 GB', '64 GB', '7 MP', 'Chính 12 MP & Phụ 12 MP', NULL, '3174 mAh, có sạc nhanh'),
+(11, '', '', 12, '6.5\", Super Retina', NULL, 'Apple A12 Bionic 6 nhân', '4 GB', '256 GB', '7 MP', 'Chính 12 MP & Phụ 12 MP', NULL, '3174 mAh, có sạc nhanh');
 
 -- --------------------------------------------------------
 
