@@ -8,9 +8,6 @@
  <li class="breadcrumb-item">
    <a href="#">QUẢN LÝ TÀI KHOẢN</a>
  </li>
- <li class="breadcrumb-item">
-   <a href="Register.php">THÊM LÝ TÀI KHOẢN</a>
- </li>
 </ol>
       <div class="text-center">
            <h1 class="h4 text-gray-900 mb-4">Cập nhật tài khoản</h1>
