@@ -26,7 +26,7 @@
             $maUser = mysqli_insert_id($connection);
         }
         $sql = "INSERT INTO `khachhang`(`MaKH`, `TenKH`, `SDT`, `Email`, `Account`) VALUES (NULL,'{$_POST["TenKH"]}','{$_POST["SDT"]}','{$_POST["Email"]}','{$maUser}')";
-        mysqli_query($connection, $sql);
+        if(mysqli_query($connection, $sql))
         $chuoi = "Đăng kí thành công";
         echo $chuoi;
     }

@@ -33,7 +33,92 @@
 </head>
 
 <body class="grey lighten-3">
-<main>
+<!-- Navbar -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+    <div class="container">
+
+      <!-- Brand -->
+      <a class="navbar-brand waves-effect" href="Home_Page.php" target="_blank" style="background: url()">
+    <img src="../img/LOGO2.png" style="width: 40px">  
+    </a>
+      <!-- Collapse -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Left -->
+        <ul class="navbar-nav mr-auto">
+
+          <li class="nav-item active">
+            <a class="nav-link waves-effect" href="Home_Page.php">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+
+          <!-- chèn giới thiệu 3T -->
+          <li class="nav-item">
+            <a class="nav-link waves-effect" href="/" target="_blank">About Us</a>
+          </li>
+        </ul>
+
+        <!-- Right -->
+        <ul class="navbar-nav nav-flex-icons">
+        <?php
+          session_start();
+          include_once("MyAccount.php");
+          $account = (Account::Display());
+          if($account == false){
+            $chuoi = <<<EOD
+            <li class="nav-item">
+            <a id="Login" class="nav-link waves-effect" href = "Login.php">
+            <i class="fas fa-sign-in-alt"></i>
+            <span class="clearfix d-none d-sm-inline-block"> Login </span>
+            </a>
+          </li>
+EOD;
+            echo $chuoi;}
+          else{
+            $chuoi = <<<EOD
+            <li class="nav-item">
+              <a id="Logout" class="nav-link waves-effect" href="LSDonHang.php">
+              <span class="clearfix d-none d-sm-inline-block"> Lịch sử mua sắm </span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a id="Logout" class="dangxuat nav-link waves-effect">
+              <i class="fas fa-sign-out-alt"></i>
+              <span class="clearfix d-none d-sm-inline-block"> $account </span>
+              </a>
+          </li>
+          
+EOD;
+            echo $chuoi;
+          }
+        ?> 
+            
+          <li class="nav-item">
+            <a id="SoMH"  class="nav-link waves-effect" href = "GioHang.php">
+                <?php
+                    include_once("MyCart.php");
+                    $somh = json_decode(Cart::Display());
+                ?>
+                <span id="SoMH" class="badge red z-depth-1 mr-1"> <?php echo $somh->SoMH ?></span>
+            <i class="fas fa-shopping-cart"></i>
+                <span class="clearfix d-none d-sm-inline-block"> Cart </span>
+            </a>
+          </li>    
+        </ul>
+
+      </div>
+
+    </div>
+  </nav>
+  <!-- Navbar -->
+  <main style="margin-top: 100px">
   <div class="container">
 
     <div class="card o-hidden border-0 shadow-lg my-5">
@@ -78,9 +163,7 @@
                 </div>
               </form>
               <hr>
-              <div class="text-center">
-                <a class="small" href="forgot-password.html">Quên mật khẩu?</a>
-              </div>
+              
               <div class="text-center">
                 <a class="small" href="Login.php">Bạn đã có tài khoản? Hãy đăng nhập!</a>
               </div>

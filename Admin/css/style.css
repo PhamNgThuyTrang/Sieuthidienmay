@@ -60,3 +60,17 @@ body,
 .list_product:hover h3{
   color: #288ad6;
 }
+
+.viewparameterfull {
+  display: block;
+  width: 100%;
+  padding: 6px 0;
+  margin: 10px 0 0;
+  cursor: pointer;
+  text-align: center;
+  font-size: 14px;
+  background-color: #288ad6;
+  color: #fff;
+  border: 1px solid #288ad6;
+  border-radius: 4px;
+  }

@@ -165,7 +165,7 @@ EOD;
             include_once("MyAccount.php");
             $account = Account::Display();
             include_once("DataProvider.php");
-        $rs= Data::ExecuteQuery("SELECT * FROM khachhang WHERE MaKH = {$account}");
+            $rs= Data::ExecuteQuery("SELECT * FROM khachhang WHERE MaKH = {$account}");
             $row = mysqli_fetch_array($rs);
             $chuoi = <<<EOD
               <!--MaKH-->

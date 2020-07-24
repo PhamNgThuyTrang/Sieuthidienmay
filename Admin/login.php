@@ -1,3 +1,18 @@
+<?php 
+//session_start();
+include ('controller/c_user.php');
+$c_user = new C_user();
+if (isset($_POST['dangnhap'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    //$user = $c_user->dangnhap($username, md5($password));
+    $user = $c_user->dangnhap($username, md5($password));
+    // $account=$user['user'];
+    // print_r($account);
+}
+
+
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,88 +24,64 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Admin Layout - Login</title>
+  <title>SB Admin - Login</title>
 
   <!-- Custom fonts for this template-->
-  <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link href="public/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
   <!-- Custom styles for this template-->
-  <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="public/css/sb-admin.css" rel="stylesheet">
 
 </head>
 
-<body class="bg-gradient-primary">
+<body class="bg-dark">
 
   <div class="container">
-
-    <!-- Outer Row -->
-    <div class="row justify-content-center">
-
-      <div class="col-xl-10 col-lg-12 col-md-9">
-
-        <div class="card o-hidden border-0 shadow-lg my-5">
-          <div class="card-body p-0">
-            <!-- Nested Row within Card Body -->
-            <div class="row">
-              <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-              <div class="col-lg-6">
-                <div class="p-5">
-                  <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
-                  </div>
-                  <form class="user">
-                    <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
-                    </div>
-                    <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
-                    </div>
-                    <div class="form-group">
-                      <div class="custom-control custom-checkbox small">
-                        <input type="checkbox" class="custom-control-input" id="customCheck">
-                        <label class="custom-control-label" for="customCheck">Remember Me</label>
-                      </div>
-                    </div>
-                    <a href="index.html" class="btn btn-primary btn-user btn-block">
-                      Login
-                    </a>
-                    <hr>
-                    <a href="index.html" class="btn btn-google btn-user btn-block">
-                      <i class="fab fa-google fa-fw"></i> Login with Google
-                    </a>
-                    <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                      <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                    </a>
-                  </form>
-                  <hr>
-                  <div class="text-center">
-                    <a class="small" href="forgot-password.html">Forgot Password?</a>
-                  </div>
-                  <div class="text-center">
-                    <a class="small" href="register.html">Create an Account!</a>
-                  </div>
-                </div>
-              </div>
+    <div class="card card-login mx-auto mt-5">
+      <?php 
+          if (isset($_SESSION['user_error'])) {
+            echo "<div class='alert alert-danger'>".$_SESSION['user_error']."</div>";
+      }
+       ?>
+      <div class="card-header">Đăng Nhập</div>
+      <div class="card-body">
+        <form method="POST" action="#">
+          <div class="form-group">
+            <div class="form-label-group">
+              <input  id="inputEmail" name="username" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
+              <label for="inputEmail">Tên Tài Khoản</label>
             </div>
           </div>
+          <div class="form-group">
+            <div class="form-label-group">
+              <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required="required">
+              <label for="inputPassword">Mật Khẩu</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" value="remember-me">
+                Nhớ Mật Khẩu
+              </label>
+            </div>
+          </div>
+          <button type="submit" name="dangnhap" class="btn btn-primary btn-block" href="index.php">Đăng Nhập</button>
+        </form>
+        <div class="text-center">
+          <a class="d-block small mt-3" href="register.php">Đăng kí</a>
+          <a class="d-block small" href="forgot-password.php">Quên Mật Khẩu?</a>
         </div>
-
       </div>
-
     </div>
-
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="public/vendor/jquery/jquery.min.js"></script>
+  <script src="public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-  <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin-2.min.js"></script>
+  <script src="public/vendor/jquery-easing/jquery.easing.min.js"></script>
 
 </body>
 

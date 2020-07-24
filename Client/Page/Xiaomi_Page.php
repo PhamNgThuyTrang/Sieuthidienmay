@@ -407,7 +407,7 @@ EOD;
         success: function(data){
           alert(data);
           if(data=="Đăng xuất thành công")
-            window.location="Home_Page.php";
+            window.location="#";
         }
       });
   });

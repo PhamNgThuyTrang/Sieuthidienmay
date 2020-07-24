@@ -5007,7 +5007,7 @@ input[type="button"].btn-block {
   line-height: 1.25;
   color: #007bff;
   background-color: #fff;
-  border: 1px solid #dee2e6;
+  border: none;
 }
 
 .page-link:hover {

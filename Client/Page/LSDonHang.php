@@ -265,7 +265,7 @@ EOD;
         success: function(data){
           alert(data);
           if(data=="Đăng xuất thành công")
-            window.location="GioHang.php";
+            window.location="Home_Page.php";
         }
       });
   });

@@ -386,6 +386,22 @@ EOD;
     });
   });
 </script>
+<script>
+  $(".dangxuat").click(function(){
+      $.ajax({
+        url: "XLLogin.php",
+        type: "post",
+        data: {
+            "hanh_dong": 'logout',
+        },
+        success: function(data){
+          alert(data);
+          if(data=="Đăng xuất thành công")
+            window.location="#";
+        }
+      });
+  });
+  </script>
   <!-- JQuery -->
   <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
   <!-- Bootstrap tooltips -->
