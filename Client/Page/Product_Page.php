@@ -59,126 +59,105 @@
         color:#0C0
         }
     </style>
+    
     </head> 
     <body>
-        <!-- Navbar -->
-        <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
-            <div class="container">
+    <!-- Navbar -->
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+    <div class="container">
 
-            <!-- Brand -->
-            <a class="navbar-brand waves-effect" href="Home_Page.php" target="_blank">
-                <strong class="blue-text">3T</strong>
+      <!-- Brand -->
+      <a class="navbar-brand waves-effect" href="Home_Page.php" target="_blank" style="background: url()">
+    <img src="../img/LOGO2.png" style="width: 40px">  
+    </a>
+      <!-- Collapse -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Left -->
+        <ul class="navbar-nav mr-auto">
+
+          <li class="nav-item active">
+            <a class="nav-link waves-effect" href="Home_Page.php">Home
+              <span class="sr-only">(current)</span>
             </a>
-            <!-- Collapse -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+          </li>
 
-            <!-- Links -->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- chèn giới thiệu 3T -->
+          <li class="nav-item">
+            <a class="nav-link waves-effect" href="/" target="_blank">About Us</a>
+          </li>
+        </ul>
 
-                <!-- Left -->
-                <ul class="navbar-nav mr-auto">
+        <!-- Right -->
+        <ul class="navbar-nav nav-flex-icons">
+        <?php
+          session_start();
+          include_once("MyAccount.php");
+          $account = (Account::Display());
+          if($account == false){
+            $chuoi = <<<EOD
+            <li class="nav-item">
+            <a id="Login" class="nav-link waves-effect" href = "Login.php">
+            <i class="fas fa-sign-in-alt"></i>
+            <span class="clearfix d-none d-sm-inline-block"> Login </span>
+            </a>
+          </li>
+EOD;
+            echo $chuoi;}
+          else{
+            $chuoi = <<<EOD
+            <li class="nav-item">
+            <a id="Logout" class="dangxuat nav-link waves-effect">
+            <i class="fas fa-sign-out-alt"></i>
+            <span class="clearfix d-none d-sm-inline-block"> $account </span>
+            </a>
+          </li>
+EOD;
+            echo $chuoi;
+          }
+        ?> 
+            
+          <li class="nav-item">
+            <a id="SoMH"  class="nav-link waves-effect" href = "GioHang.php">
+                <?php
+                    include_once("MyCart.php");
+                    $somh = json_decode(Cart::Display());
+                ?>
+                <span id="SoMH" class="badge red z-depth-1 mr-1"> <?php echo $somh->SoMH ?></span>
+            <i class="fas fa-shopping-cart"></i>
+                <span class="clearfix d-none d-sm-inline-block"> Cart </span>
+            </a>
+          </li>    
+        </ul>
 
-                <li class="nav-item active">
-                    <a class="nav-link waves-effect" href="Home_Page.php">Home
-                    <span class="sr-only">(current)</span>
-                    </a>
-                </li>
+      </div>
 
-                <!-- chèn giới thiệu 3T -->
-                <li class="nav-item">
-                    <a class="nav-link waves-effect" href="/" target="_blank">About 3T</a>
-                </li>
-                </ul>
-
-                <!-- Right -->
-                <ul class="navbar-nav nav-flex-icons">
-                <li class="nav-item">
-                    <a class="nav-link waves-effect" href = "Checkout_Page.php">
-                    <span class="badge red z-depth-1 mr-1"> 1 </span>
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="clearfix d-none d-sm-inline-block"> Cart </span>
-                    </a>
-                </li>    
-                </ul>
-
-            </div>
-
-            </div>
-        </nav>
-        <!-- Navbar -->
+    </div>
+  </nav>
+  <!-- Navbar -->
         <main>
         <div style = "width: 90% !important; margin: 100px 5%; height: 100%;">
         <div class="box_top_content">
                 <aside class="left_content">
                     <?php
-                        include_once("Data.php");
-                        $sql_product = "SELECT * FROM `slide_sanpham` WHERE ID_sanpham = {$_GET['link']}";
+                        include_once("DataProvider.php");
+                        $sql_product = "SELECT * FROM `thongtin_sanpham` WHERE ID = {$_GET['link']}";
                         $img_product = Data::ExecuteQuery($sql_product);
+                        $row = mysqli_fetch_array($img_product);
                         $title = str_replace('-',' ',$_GET['title']);
-                    ?>
-                    <div id="carousel-example-1z" style="height: min-content; width: 100%;" class="carousel slide carousel-fade pt-4" data-ride="carousel">
-                        <!--Indicators-->
-                        <ol class="carousel-indicators">
-                        <?php
-                        $count_img = 0 ;
-                        while ($row = mysqli_fetch_array($img_product)){
-                        $chuoi_img = <<<EOD
-                        <li data-target="#carousel-example-1z" data-slide-to='$count_img' class="active"></li>
-EOD;
-                        echo $chuoi_img;
-                        $count_img++;
-                        }
-                        ?>
-                        </ol>
-                        <!--/.Indicators-->
-
-                        <!--Slides-->
-                        <div class="carousel-inner" role="listbox">
-                        <?php
-                        
-                        $count_img = 1;
-                        $img_product = Data::ExecuteQuery($sql_product);
-                        while ($row = mysqli_fetch_array($img_product)){
-                            if($count_img != 1){
-                                $slide_event = <<<EOD
-                                <div class="carousel-item">
-                                <img class="view" style="width: inherit; height: inherit;"  src="{$row['Hinh']}">
-                                </div>
-EOD;
-                                echo $slide_event;
-                                $count_img++;
-                            }
-                            if($count_img == 1){
-                            $slide_event = <<<EOD
-                            <div class="carousel-item active ">
-                                <img class="view" style="width: inherit; height: inherit;"  src="{$row['Hinh']}">
-                            </div>
-EOD;
-                            
-                            
-                            echo $slide_event;
-                            $count_img++;
-                            }
-                        }
-                        ?>
-
-                        </div>
-                        <!--/.Slides-->
-
-                        <!--Controls-->
-                        <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                        </a>
-                        <!--/.Controls-->
+                        $chuoi = <<<EOD
+                    <div style="height: min-content; width: 100%;">
+                        <img class="view" style="width: inherit; height: 300px;"  src="{$row['Hinh']}">
                     </div>
+EOD;
+                    echo $chuoi;
+                    ?>
                 </aside>
 
                 <aside class="right_content">
@@ -190,6 +169,11 @@ EOD;
                         $sql_thongso = "SELECT * FROM `thongtin_sanpham` WHERE ID = {$_GET['link']}";
                         $result = Data::ExecuteQuery($sql_thongso);
                         $row = mysqli_fetch_array($result);
+                        $Giaban = number_format($row['GiaBan']);
+                        if($row['GiaNY']==NULL)
+                            $GiaNY = number_format($row['GiaBan']);
+                        else
+                            $GiaNY = number_format($row['GiaNY']);
                         $thongtin = <<<EOD
                         <ul class="parameter ">
                             <li style="border: none;">
@@ -198,14 +182,14 @@ EOD;
                             <li>
                                 <span>Giá niêm yết:</span>
                                 <div>
-                                    {$row['GiaNY']}
+                                    {$GiaNY} VND
                                 </div>
                             </li>
                             
                             <li>
                                 <span>Giá bán:</span>
                                 <div>
-                                    {$row['GiaBan']}
+                                    {$Giaban} VND
                                 </div>
                             </li>
                             
@@ -215,11 +199,13 @@ EOD;
                                     {$row['KhuyenMai']}
                                 </div>
                             </li>
+                        <ul>
+                            <button type="button" class="viewparameterfull mua" data-id="{$row['ID']}">Thêm vào giỏ hàng</button>
                             
 EOD;
                         echo $thongtin;
                         ?>
-                            <button type="button" class="viewparameterfull" onclick="getFullSpec(200533,)">Thêm vào giỏ hàng</button>
+                            
                         <div class="closebtn none"><i class="icondetail-closepara"></i></div>
                     </div>
                 </aside>
@@ -227,7 +213,6 @@ EOD;
             <div class="box_content">
                 <aside class="left_content">
                     <?php
-                        include_once("Data.php");
                         $sql_product = "SELECT * FROM `slide_sanpham` WHERE ID_sanpham = {$_GET['link']}";
                         $img_product = Data::ExecuteQuery($sql_product);
                         $title = str_replace('-',' ',$_GET['title']);
@@ -262,7 +247,7 @@ EOD;
                             if($count_img != 1){
                                 $slide_event = <<<EOD
                                 <div class="carousel-item">
-                                <img class="view" style="width: inherit; height: inherit;"  src="{$row['Hinh']}">
+                                <img class="view" style="width: inherit; height: 420px;"  src="{$row['Hinh']}">
                                 </div>
 EOD;
                                 echo $slide_event;
@@ -271,7 +256,7 @@ EOD;
                             if($count_img == 1){
                             $slide_event = <<<EOD
                             <div class="carousel-item active ">
-                                <img class="view" style="width: inherit; height: inherit;"  src="{$row['Hinh']}">
+                                <img class="view" style="width: inherit; height: 420px;"  src="{$row['Hinh']}">
                             </div>
 EOD;
                             
@@ -302,7 +287,7 @@ EOD;
                     <div class="tableparameter">     
                         <h2>Thông số kỹ thuật</h2>
                         <?php
-                        $sql_thongso = "SELECT * FROM `thongsokithuat` WHERE ID = {$_GET['link']}";
+                        $sql_thongso = "SELECT * FROM `thongsokithuat` WHERE idSanPham = {$_GET['link']}";
                         $result = Data::ExecuteQuery($sql_thongso);
                         $row = mysqli_fetch_array($result);
                         $thongtin = <<<EOD
@@ -399,9 +384,42 @@ EOD;
         <!--/.Footer-->
 
         <!-- SCRIPTS -->
-
+        
+        
         <!-- JQuery -->
+        <script type="text/javascript" src="../js/jquery/jquery-3.5.0.js"></script>
         <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+        <script>
+        $(function(){
+            $(".mua").click(function(){
+                $.ajax({
+                    url: "XLGioHang.php",
+                    data: {
+                        "id": $(this).data("id"),
+                        "hanh_dong": "them"
+                    },
+                    success: function(response){
+							$("#SoMH").html(response);
+						}
+                });
+            });
+        });
+        
+        $(".dangxuat").click(function(){
+            $.ajax({
+                url: "XLLogin.php",
+                type: "post",
+                data: {
+                    "hanh_dong": 'logout',
+                },
+                success: function(data){
+                alert(data);
+                if(data=="Đăng xuất thành công")
+                    window.location="Home_Page.php";
+                }
+            });
+        });
+  </script>
         <!-- Bootstrap tooltips -->
         <script type="text/javascript" src="../js/popper.min.js"></script>
         <!-- Bootstrap core JavaScript -->

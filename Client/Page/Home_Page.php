@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Trung tâm Smartphone 3T</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
@@ -65,9 +65,9 @@
     <div class="container">
 
       <!-- Brand -->
-      <a class="navbar-brand waves-effect" href="Home_Page.php" target="_blank">
-        <strong class="blue-text">3T</strong>
-      </a>
+      <a class="navbar-brand waves-effect" href="Home_Page.php" target="_blank" style="background: url()">
+    <img src="../img/LOGO2.png" style="width: 40px">  
+    </a>
       <!-- Collapse -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -88,17 +88,54 @@
 
           <!-- chèn giới thiệu 3T -->
           <li class="nav-item">
-            <a class="nav-link waves-effect" href="/" target="_blank">About 3T</a>
+            <a class="nav-link waves-effect" href="/" target="_blank">About Us</a>
           </li>
         </ul>
 
         <!-- Right -->
         <ul class="navbar-nav nav-flex-icons">
+        <?php
+          session_start();
+          include_once("MyAccount.php");
+          $account = (Account::Display());
+          if($account == false){
+            $chuoi = <<<EOD
+            <li class="nav-item">
+            <a id="Login" class="nav-link waves-effect" href = "Login.php">
+            <i class="fas fa-sign-in-alt"></i>
+            <span class="clearfix d-none d-sm-inline-block"> Login </span>
+            </a>
+          </li>
+EOD;
+            echo $chuoi;}
+          else{
+            $chuoi = <<<EOD
+            <li class="nav-item">
+              <a id="Logout" class="nav-link waves-effect" href="LSDonHang.php">
+              <span class="clearfix d-none d-sm-inline-block"> Lịch sử mua sắm </span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a id="Logout" class="dangxuat nav-link waves-effect">
+              <i class="fas fa-sign-out-alt"></i>
+              <span class="clearfix d-none d-sm-inline-block"> $account </span>
+              </a>
+          </li>
+          
+EOD;
+            echo $chuoi;
+          }
+        ?> 
+            
           <li class="nav-item">
-            <a class="nav-link waves-effect" href = "Checkout_Page.php">
-              <span class="badge red z-depth-1 mr-1"> 1 </span>
-              <i class="fas fa-shopping-cart"></i>
-              <span class="clearfix d-none d-sm-inline-block"> Cart </span>
+            <a id="SoMH"  class="nav-link waves-effect" href = "GioHang.php">
+                <?php
+                    include_once("MyCart.php");
+                    $somh = json_decode(Cart::Display());
+                ?>
+                <span id="SoMH" class="badge red z-depth-1 mr-1"> <?php echo $somh->SoMH ?></span>
+            <i class="fas fa-shopping-cart"></i>
+                <span class="clearfix d-none d-sm-inline-block"> Cart </span>
             </a>
           </li>    
         </ul>
@@ -112,7 +149,7 @@
   <!--Main layout-->
   <main>
     <?php
-      include_once("Data.php");
+      include_once("DataProvider.php");
     ?>
     <div class="container" style="min-width: 900px">
       <!--Carousel Wrapper-->
@@ -188,7 +225,7 @@ EOD;
       <nav class="navbar navbar-expand-lg navbar-dark mdb-color lighten-3 mt-3 mb-5">
 
         <!-- Navbar brand -->
-        <span class="navbar-brand">Danh mục sản phẩm</span>
+        <span class="navbar-brand">Danh mục</span>
 
         <!-- Collapse button -->
         
@@ -198,67 +235,35 @@ EOD;
           <!-- Links -->
           <ul>
             <li>
-              <p>Điện thoại</p>
-              <ul>
-                <li>
-                  <a href="iPhone_Page.php">Iphone</a>
-                </li>
-                <li>
-                  <a href="Samsung_Page.php">Samsung</a>
-                </li>
-                <li>
-                  <a href="Sony_Page.php">Sony</a>
-                </li>
-                <li>
-                  <a href="OPPO_Page.php">OPPO</a>
-                </li>
-                <li>
-                  <a href="Huawei_Page.php">Huawei</a>
-                </li>
-                <li>
-                  <a href="Vivo_Page.php">Vivo</a>
-                </li>
-                <li>
-                  <a href="Xiaomi_Page.php">Xiaomi</a>
-                </li>
-                <li>
-                  <a href="Vsmart_Page.php">Vsmart</a>
-                </li>
-              </ul>
+              <a href="iPhone_Page.php">Iphone</a>
             </li>
-
             <li>
-              <p>Phụ kiện</p>
-              <ul>
-                <li>
-                  <a href="CS_Page.php">Cáp sạc</a>
-                </li>
-                <li>
-                  <a href="TN_Page.php">Tai nghe</a>
-                </li>
-                <li>
-                  <a href="OL_Page.php">Ốp lưng</a>
-                </li>
-                <li>
-                  <a href="SDP_Page.php">Sạc dự phòng</a>
-                </li>
-              </ul>
+              <a href="Samsung_Page.php">Samsung</a>
             </li>
-
+            
             <li>
-              <p>Khuyến mãi</p>
+              <a href="OPPO_Page.php">OPPO</a>
             </li>
-
             <li>
-              <p>Máy cũ</p>
+              <a href="Huawei_Page.php">Huawei</a>
+            </li>
+            <li>
+              <a href="Vivo_Page.php">Vivo</a>
+            </li>
+            <li>
+              <a href="Xiaomi_Page.php">Xiaomi</a>
+            </li>
+            <li>
+              <a href="Vsmart_Page.php">Vsmart</a>
             </li>
           </ul>
           <!-- Links -->
         </div>
         <!-- Collapsible content -->
-        <form  class="form-inline float-right">
+        <form  class="form-inline float-right" method="POST" action="timkiem.php">
           <div class="md-form my-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            <input class="form-control mr-sm-2" type="text" name="timkiem"/>
+            <input class="border" type="submit" value="Search" style="border-radius: 5px; background-color: lightsteelblue;float: right;width: fit-content;height: 35px;"/>
           </div>
         </form>
       </nav>
@@ -277,7 +282,6 @@ EOD;
       flex-wrap: wrap;"
       >
       <?php
-        include_once('Data.php');
         $page = 1;//khởi tạo trang ban đầu
         $limit = 15;//số bản ghi trên 1 trang (20 bản ghi trên 1 trang)
         
@@ -295,7 +299,7 @@ EOD;
     
         //tính start (vị trí bản ghi sẽ bắt đầu lấy):
         $start=($page-1)*$limit;
-        $sql_arrs = "SELECT * FROM `thongtin_sanpham` LIMIT $start,$limit";
+        $sql_arrs = "SELECT * FROM `thongtin_sanpham`  LIMIT $start,$limit";
         //lấy ra danh sách và gán vào biến $arrs:
         $arrs = Data::ExecuteQuery($sql_arrs);
         foreach($arrs as $arr) {
@@ -341,6 +345,7 @@ EOD;
       </ul>
 
       <!-- 'start hiện nút phân trang' -->
+      <?php if($total_page > 1){ ?>
       <nav class="d-flex justify-content-center wow fadeIn" style="margin-top: 100px">
 				<ul class="pagination pg-blue">
           <!--Arrow left-->
@@ -349,23 +354,21 @@ EOD;
               <span aria-hidden="true">&laquo;</span>
               <span class="sr-only">Previous</span>
             </a>
-          </li>
 					<?php for($i=1;$i<=$total_page;$i++){ ?>
 				    <li <?php if($page == $i) echo "class='page-item active'"; ?> >
               <a class="page-link" href="Home_Page.php?page=<?php echo $i; ?>"><?php echo $i; ?>
               </a>
-            </li>
-				    <?php } ?>
+          </li><?php }?>
           <li class="page-item">
             <a class="page-link" href="Home_Page.php?page=<?php echo $total_page; ?>" aria-label="Next">
               <span aria-hidden="true">&raquo;</span>
               <span class="sr-only">Next</span>
             </a>
           </li>
-        </ul>
+          </ul>
       </nav>
+      <?php }?>
 		</div>
-			<!-- 'end hiện nút phân trang' -->
   </main>
   <!--Main layout-->
 
@@ -391,7 +394,24 @@ EOD;
   <!--/.Footer-->
 
   <!-- SCRIPTS -->
- 
+  <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="../js/jquery/jquery-3.5.0.js"></script>
+  <script>
+  $(".dangxuat").click(function(){
+      $.ajax({
+        url: "XLLogin.php",
+        type: "post",
+        data: {
+            "hanh_dong": 'logout',
+        },
+        success: function(data){
+          alert(data);
+          if(data=="Đăng xuất thành công")
+            window.location="Home_Page.php";
+        }
+      });
+  });
+  </script>
   <!-- JQuery -->
   <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
   <!-- Bootstrap tooltips -->
@@ -406,5 +426,4 @@ EOD;
     new WOW().init();
   </script>
 </body>
-
 </html>

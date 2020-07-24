@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Trung tâm Smartphone 3T</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <!-- Bootstrap core CSS -->
   <link href="../css/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/bootstrap/bootstrap.css" rel="stylesheet">
   <!-- Material Design Bootstrap -->
   <link href="../css/mdb.min.css" rel="stylesheet">
   <!-- Your custom styles (optional) -->
   <link href="../css/style.min.css" rel="stylesheet">
   <link href="../css/style.css" rel="stylesheet">
   <link href="../css/menu.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">  
   <style type="text/css">
   
     html,
@@ -25,6 +25,7 @@
     .carousel {
       height: 60vh;
     }
+    
 
     @media (max-width: 740px) {
 
@@ -64,9 +65,9 @@
     <div class="container">
 
       <!-- Brand -->
-      <a class="navbar-brand waves-effect" href="Home_Page.php" target="_blank">
-        <strong class="blue-text">3T</strong>
-      </a>
+      <a class="navbar-brand waves-effect" href="Home_Page.php" target="_blank" style="background: url()">
+    <img src="../img/LOGO2.png" style="width: 40px">  
+    </a>
       <!-- Collapse -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,24 +81,61 @@
         <ul class="navbar-nav mr-auto">
 
           <li class="nav-item active">
-            <a class="nav-link waves-effect" href="/">Home
+            <a class="nav-link waves-effect" href="Home_Page.php">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
 
           <!-- chèn giới thiệu 3T -->
           <li class="nav-item">
-            <a class="nav-link waves-effect" href="/" target="_blank">About 3T</a>
+            <a class="nav-link waves-effect" href="/" target="_blank">About Us</a>
           </li>
         </ul>
 
         <!-- Right -->
         <ul class="navbar-nav nav-flex-icons">
+        <?php
+          session_start();
+          include_once("MyAccount.php");
+          $account = (Account::Display());
+          if($account == false){
+            $chuoi = <<<EOD
+            <li class="nav-item">
+            <a id="Login" class="nav-link waves-effect" href = "Login.php">
+            <i class="fas fa-sign-in-alt"></i>
+            <span class="clearfix d-none d-sm-inline-block"> Login </span>
+            </a>
+          </li>
+EOD;
+            echo $chuoi;}
+          else{
+            $chuoi = <<<EOD
+            <li class="nav-item">
+              <a id="Logout" class="nav-link waves-effect" href="LSDonHang.php">
+              <span class="clearfix d-none d-sm-inline-block"> Lịch sử mua sắm </span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a id="Logout" class="dangxuat nav-link waves-effect">
+              <i class="fas fa-sign-out-alt"></i>
+              <span class="clearfix d-none d-sm-inline-block"> $account </span>
+              </a>
+          </li>
+          
+EOD;
+            echo $chuoi;
+          }
+        ?> 
+            
           <li class="nav-item">
-            <a class="nav-link waves-effect">
-              <span class="badge red z-depth-1 mr-1"> 1 </span>
-              <i class="fas fa-shopping-cart"></i>
-              <span class="clearfix d-none d-sm-inline-block"> Cart </span>
+            <a id="SoMH"  class="nav-link waves-effect" href = "GioHang.php">
+                <?php
+                    include_once("MyCart.php");
+                    $somh = json_decode(Cart::Display());
+                ?>
+                <span id="SoMH" class="badge red z-depth-1 mr-1"> <?php echo $somh->SoMH ?></span>
+            <i class="fas fa-shopping-cart"></i>
+                <span class="clearfix d-none d-sm-inline-block"> Cart </span>
             </a>
           </li>    
         </ul>
@@ -111,9 +149,9 @@
   <!--Main layout-->
   <main>
     <?php
-      include_once("Data.php");
+      include_once("DataProvider.php");
     ?>
-    <div class="container">
+    <div class="container" style="min-width: 900px">
       <!--Carousel Wrapper-->
       <div id="carousel-example-1z" 
       style="height: auto; width: 100%; margin-top: 40px;"  
@@ -187,7 +225,7 @@ EOD;
       <nav class="navbar navbar-expand-lg navbar-dark mdb-color lighten-3 mt-3 mb-5">
 
         <!-- Navbar brand -->
-        <span class="navbar-brand">Danh mục sản phẩm</span>
+        <span class="navbar-brand">Danh mục</span>
 
         <!-- Collapse button -->
         
@@ -197,107 +235,94 @@ EOD;
           <!-- Links -->
           <ul>
             <li>
-              <p href="All_Page.php">All</p>
+              <a href="iPhone_Page.php">Iphone</a>
             </li>
-
             <li>
-              <p>Điện thoại</p>
-              <ul>
-                <li>
-                  <a href="iPhone_Page.php">Iphone</a>
-                </li>
-                <li>
-                  <a href="Samsung_Page.php">Samsung</a>
-                </li>
-                <li>
-                  <a href="Sony_Page.php">Sony</a>
-                </li>
-                <li>
-                  <a href="OPPO_Page.php">OPPO</a>
-                </li>
-                <li>
-                  <a href="Huawei_Page.php">Huawei</a>
-                </li>
-                <li>
-                  <a href="Vivo_Page.php">Vivo</a>
-                </li>
-                <li>
-                  <a href="Xiaomi_Page.php">Xiaomi</a>
-                </li>
-                <li>
-                  <a href="Vsmart_Page.php">Vsmart</a>
-                </li>
-              </ul>
+              <a href="Samsung_Page.php">Samsung</a>
             </li>
-
+            
             <li>
-              <p>Phụ kiện</p>
-              <ul>
-                <li>
-                  <a href="#">Cáp sạc</a>
-                </li>
-                <li>
-                  <a href="#">Tai nghe</a>
-                </li>
-                <li>
-                  <a href="#">Ốp lưng</a>
-                </li>
-                <li>
-                  <a href="#">Sạc dự phòng</a>
-                </li>
-              </ul>
+              <a href="OPPO_Page.php">OPPO</a>
             </li>
-
             <li>
-              <p>Khuyến mãi</p>
+              <a href="Huawei_Page.php">Huawei</a>
             </li>
-
             <li>
-              <p>Máy cũ</p>
+              <a href="Vivo_Page.php">Vivo</a>
+            </li>
+            <li>
+              <a href="Xiaomi_Page.php">Xiaomi</a>
+            </li>
+            <li>
+              <a href="Vsmart_Page.php">Vsmart</a>
             </li>
           </ul>
           <!-- Links -->
         </div>
         <!-- Collapsible content -->
-        <form  class="form-inline float-right">
+        <form  class="form-inline float-right" method="POST" action="timkiem.php">
           <div class="md-form my-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            <input class="form-control mr-sm-2" type="text" name="timkiem"/>
+            <input class="border" type="submit" value="Search" style="border-radius: 5px; background-color: lightsteelblue;float: right;width: fit-content;height: 35px;"/>
           </div>
         </form>
       </nav>
       <!--/.Navbar-->
       <!--Section: Products v.3-->
       <?php
-      $sql_thongtin = "SELECT * FROM `thongtin_sanpham` WHERE `LoaiSP` = 1";
-      $ketqua = Data::ExecuteQuery($sql_thongtin);
+      $sql_arrs_list = "SELECT * FROM `thongtin_sanpham` WHERE NhanHieu = 7";
+      $arrs_list = Data::ExecuteQuery($sql_arrs_list);
       ?>
       <ul style="
+      min-width: 900 px;
       margin: auto;
       padding: 0;
       list-style: none;
       display: flex;
-      flex-wrap: wrap;">
+      flex-wrap: wrap;"
+      >
       <?php
-        while ($row = mysqli_fetch_array($ketqua)) {
-          $Giaban = number_format($row['GiaBan']);
+        $page = 1;//khởi tạo trang ban đầu
+        $limit = 15;//số bản ghi trên 1 trang (20 bản ghi trên 1 trang)
+        
+        $total_record = mysqli_num_rows($arrs_list);//tính tổng số bản ghi có trong bảng thongtin_sanpham
+        
+        $total_page=ceil($total_record/$limit);//tính tổng số trang sẽ chia
+    
+        //xem trang có vượt giới hạn không:
+        if(isset($_GET["page"]))
+          $page=$_GET["page"];//nếu biến $_GET["page"] tồn tại thì trang hiện tại là trang $_GET["page"]
+        if($page<1) 
+          $page=1; //nếu trang hiện tại nhỏ hơn 1 thì gán bằng 1
+        if($page>$total_page) 
+          $page=$total_page;//nếu trang hiện tại vượt quá số trang được chia thì sẽ bằng trang cuối cùng
+    
+        //tính start (vị trí bản ghi sẽ bắt đầu lấy):
+        $start=($page-1)*$limit;
+        $sql_arrs = "SELECT * FROM `thongtin_sanpham` WHERE NhanHieu = 7  LIMIT $start,$limit";
+        //lấy ra danh sách và gán vào biến $arrs:
+        $arrs = Data::ExecuteQuery($sql_arrs);
+        foreach($arrs as $arr) {
+          $title = str_replace(' ','-',$arr['TenSP']);
+          $Giaban = number_format($arr['GiaBan']);
           $chuoi = <<<EOD
               <li class = "list_product">
 
-                <a onclick = "thongtinchitiet()">
-                  <img src="{$row['Hinh']}">
+                <a href = "Product_Page.php?title=$title&link={$arr['ID']}">
+                  <img src="{$arr['Hinh']}">
 
-                  <h3>{$row['TenSP']}</h3>
+                  <h3>{$arr['TenSP']}</h3>
 EOD;
           echo $chuoi;
 
-          if(isset($row['GiaNY'])){
-          $Gianiemyet = number_format($row['GiaNY']);
+          if(isset($arr['GiaNY'])){
+          $Gianiemyet = number_format($arr['GiaNY']);
           $chuoi = <<<EOD
           <div style="height: 15px; color: black; text-align: left; margin: 0 5px; font-size: 12px; text-decoration: line-through;">{$Gianiemyet}đ</div>
 EOD;
           echo $chuoi;
           }
-          if(!isset($row['GiaNY'])){
+          if(!isset($arr['GiaNY'])){
             $chuoi = <<<EOD
             <div style="height: 15px; color: black; text-align: left; margin: 0 5px; font-size: 12px; text-decoration: line-through;"></div>
 EOD;
@@ -308,7 +333,7 @@ EOD;
                   <div style="color: red; text-align: left; margin: 0 5px; font-weight: bold; margin-right: 5px;">{$Giaban}đ</div>
                   
                   <footer>
-                  <div style="width:fit-content; margin: 0 5px; word-wrap: break-word; color: black; text-align: left; font-size: 12px; margin-right: 5px;">{$row['KhuyenMai']}</div>
+                  <div style="width:fit-content; margin: 0 5px; word-wrap: break-word; color: black; text-align: left; font-size: 12px; margin-right: 5px;">{$arr['KhuyenMai']}</div>
                   </footer>
                 </a>
               </li>
@@ -318,51 +343,32 @@ EOD;
         
       ?>
       </ul>
-      
-        
-      <!--Section: Products v.3-->
 
-      <!--Pagination-->
+      <!-- 'start hiện nút phân trang' -->
+      <?php if($total_page > 1){ ?>
       <nav class="d-flex justify-content-center wow fadeIn" style="margin-top: 100px">
-        <ul class="pagination pg-blue">
-
+				<ul class="pagination pg-blue">
           <!--Arrow left-->
-          <li class="page-item disabled">
-            <a class="page-link" href="#" aria-label="Previous">
+          <li class="page-item">
+            <a class="page-link" href="Vsmart_Page.php?page=<?php echo 1; ?>" aria-label="Previous">
               <span aria-hidden="true">&laquo;</span>
               <span class="sr-only">Previous</span>
             </a>
-          </li>
-
-          <li class="page-item active">
-            <a class="page-link" href="#">1
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
+					<?php for($i=1;$i<=$total_page;$i++){ ?>
+				    <li <?php if($page == $i) echo "class='page-item active'"; ?> >
+              <a class="page-link" href="Vsmart_Page.php?page=<?php echo $i; ?>"><?php echo $i; ?>
+              </a>
+          </li><?php }?>
           <li class="page-item">
-            <a class="page-link" href="#">2</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#">3</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#">4</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#">5</a>
-          </li>
-
-          <li class="page-item">
-            <a class="page-link" href="#" aria-label="Next">
+            <a class="page-link" href="Vsmart_Page.php?page=<?php echo $total_page; ?>" aria-label="Next">
               <span aria-hidden="true">&raquo;</span>
               <span class="sr-only">Next</span>
             </a>
           </li>
-        </ul>
+          </ul>
       </nav>
-      <!--Pagination-->
-
-    </div>
+      <?php }?>
+		</div>
   </main>
   <!--Main layout-->
 
@@ -388,14 +394,30 @@ EOD;
   <!--/.Footer-->
 
   <!-- SCRIPTS -->
-  <!-- JQuery -->
-  
   <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
-  
+  <script type="text/javascript" src="../js/jquery/jquery-3.5.0.js"></script>
+  <script>
+  $(".dangxuat").click(function(){
+      $.ajax({
+        url: "XLLogin.php",
+        type: "post",
+        data: {
+            "hanh_dong": 'logout',
+        },
+        success: function(data){
+          alert(data);
+          if(data=="Đăng xuất thành công")
+            window.location="Home_Page.php";
+        }
+      });
+  });
+  </script>
+  <!-- JQuery -->
+  <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
   <!-- Bootstrap tooltips -->
   <script type="text/javascript" src="../js/popper.min.js"></script>
   <!-- Bootstrap core JavaScript -->
-  <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../js/bootstrap/bootstrap.min.js"></script>
   <!-- MDB core JavaScript -->
   <script type="text/javascript" src="../js/mdb.min.js"></script>
   <!-- Initializations -->
@@ -403,7 +425,5 @@ EOD;
     // Animations initialization
     new WOW().init();
   </script>
-  
 </body>
-
 </html>
