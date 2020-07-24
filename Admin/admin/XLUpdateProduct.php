@@ -8,7 +8,7 @@
         else
 	        $sql = "UPDATE `thongtin_sanpham` SET `ID`='{$_POST["ID"]}',`TenSP`='{$_POST["TenSP"]}',`Nhanhieu`='{$_POST["Nhanhieu"]}',`Hinh`='{$_FILES['Hinh']["name"]}',`GiaNY`='{$_POST["GiaNY"]}',`GiaBan`='{$_POST["GiaBan"]}',`KhuyenMai`='{$_POST["KhuyenMai"]}',`Ngaynhap`='{$_POST["Ngaynhap"]}',`SoLuong`='{$_POST["SoLuong"]}'  WHERE  `ID` = '{$_POST["ID"]}'";
 	if(mysqli_query($connection, $sql)){
-        header("Location: Quanly_users.php");
+        header("Location: Quanly_sanpham.php");
         $chuoi = "Cập nhật thành công";
         echo '<script language="javascript">';
         echo 'alert("Cập nhật thành công")';
@@ -18,6 +18,6 @@
     }
     else{
             $chuoi = "Cập nhật không thành công";
-            header("Location: Quanly_users.php");
+            header("Location: Quanly_sanpham.php");
         }
 ?>

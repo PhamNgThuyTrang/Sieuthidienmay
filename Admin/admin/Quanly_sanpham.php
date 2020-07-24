@@ -12,13 +12,11 @@
           <div class="text-center">
             <h1 class="h4 text-gray-900 mb-4">Cập nhật sản phẩm</h1>
           </div>
-          <div id="thongtin">
-          <form class="user"  action="" method="post" enctype="multipart/form-data">
+          <div id="thongtin" style="margin-bottom: 50px">
+          <form class="user"  action="AddProduct.php" method="post" enctype="multipart/form-data">
+          
           <div class="form-group">
-            <input type="text" class="form-control form-control-user" name="ID" id="ID" required style="width:0%;height:0%;visibility: hidden;">
-          </div>
-          <div class="form-group">
-              <input type="text" class="form-control form-control-user" name="Name" id="Name" placeholder="Tên sản phẩm"  required>
+              <input type="text" class="form-control form-control-user" name="TenSP" id="TenSP" placeholder="Tên sản phẩm"  required>
           </div>
           <div class="form-group">
           <select class="form-control form-control-user" name="Nhanhieu" id="Nhanhieu">
@@ -39,7 +37,7 @@ EOD;
           <input type="text" class="form-control form-control-user" name="GiaNY" id="GiaNY" placeholder="Giá niêm yết"  required>
           </div>
           <div class="form-group">
-          <input type="text" class="form-control form-control-user" name="Giaban" id="GiaBan" placeholder="Giá bán"  required>
+          <input type="text" class="form-control form-control-user" name="GiaBan" id="GiaBan" placeholder="Giá bán"  required>
           </div>
           <div class="form-group">
           <input type="text" class="form-control form-control-user" name="KhuyenMai" id="KhuyenMai" placeholder="Khuyến mãi"  required>
@@ -48,23 +46,25 @@ EOD;
           <input type="text" class="form-control form-control-user" name="Ngaynhap" id="Ngaynhap" placeholder="Ngày nhập"  required>
           </div>
           <div class="form-group">
-          <input type="text" class="form-control form-control-user" name="Soluong" id="SoLuong" placeholder="Số lượng"  required>
+          <input type="text" class="form-control form-control-user" name="SoLuong" id="SoLuong" placeholder="Số lượng"  required>
           </div>
           <div class="form-group">
-          Hình ảnh <input type="file" class="" name="Hinh" id="Hinh"  required>
+          Hình ảnh <input type="file" name="Hinh" required class="form-control" />
+
           </div>
-          <div class="form-group row">
-            <div class="col-sm-6 mb-3 mb-sm-0">
-                <button class="btn btn-primary form-control" type="submit">
-                    Xác nhận
-                </button>
-            </div>
-            <div class="col-sm-6">
-              <button class="btn btn-danger form-control" type="reset">
-                  Nhập lại
-              </button>
-            </div>
-          </div>
+          <div class="row">
+                <div class="col-12 text-center">
+                    <button class="btn btn-primary" type="submit"  style="width: 30%">
+                        Thêm
+                    </button>
+                    <button class="btn btn-warning" style="width: 30%" >
+                        Xác nhận
+                    </button>
+                    <button class="btn btn-danger" type="reset"  style="width: 30%">
+                        Nhập lại
+                    </button>
+                </div>
+                </div>
         </form>
         </div>
         <!-- DataTables Example -->

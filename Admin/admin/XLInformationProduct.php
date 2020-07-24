@@ -9,7 +9,7 @@
             <input type="text" class="form-control form-control-user" name="ID" id="ID" value="{$row['ID']}" required style="width:0%;height:0%;visibility: hidden;">
           </div>
           <div class="form-group">
-              <input type="text" class="form-control form-control-user" name="Name" id="Name" value="{$row['TenSP']}" placeholder="Tên sản phẩm"  required>
+              <input type="text" class="form-control form-control-user" name="TenSP" id="TenSP" value="{$row['TenSP']}" placeholder="Tên sản phẩm"  required>
           </div>
           <div class="form-group">
           <select class="form-control form-control-user" name="Nhanhieu" id="Nhanhieu">
@@ -34,7 +34,7 @@ EOD;
           <input type="text" class="form-control form-control-user" name="GiaNY" id="GiaNY" value="{$row['GiaNY']}" placeholder="Giá niêm yết"  required>
           </div>
           <div class="form-group">
-          <input type="text" class="form-control form-control-user" name="Giaban" id="GiaBan" value="{$row['GiaBan']}" placeholder="Giá bán"  required>
+          <input type="text" class="form-control form-control-user" name="GiaBan" id="GiaBan" value="{$row['GiaBan']}" placeholder="Giá bán"  required>
           </div>
           <div class="form-group">
           <input type="text" class="form-control form-control-user" name="KhuyenMai" id="KhuyenMai" value="{$row['KhuyenMai']}" placeholder="Khuyến mãi"  required>
@@ -43,23 +43,25 @@ EOD;
           <input type="text" class="form-control form-control-user" name="Ngaynhap" id="Ngaynhap" value="{$row['Ngaynhap']}" placeholder="Ngày nhập"  required>
           </div>
           <div class="form-group">
-          <input type="text" class="form-control form-control-user" name="Soluong" id="SoLuong" value="{$row['SoLuong']}" placeholder="Số lượng"  required>
+          <input type="text" class="form-control form-control-user" name="SoLuong" id="SoLuong" value="{$row['SoLuong']}" placeholder="Số lượng"  required>
           </div>
           <div class="form-group">
-          Hình ảnh <input type="file" class="" name="Hinh" id="Hinh">
+          Hình ảnh                     <input type="file" name="Hinh" required class="form-control" />
+
           </div>
-          <div class="form-group row">
-            <div class="col-sm-6 mb-3 mb-sm-0">
-                <button class="btn btn-primary form-control" type="submit">
-                    Xác nhận
-                </button>
-            </div>
-            <div class="col-sm-6">
-              <button class="btn btn-danger form-control" type="reset">
-                  Nhập lại
-              </button>
-            </div>
-          </div>
+          <div class="row">
+                <div class="col-12 text-center">
+                    <button class="btn btn-primary"   style="width: 30%">
+                        Thêm
+                    </button>
+                    <button class="btn btn-warning" type="submit" style="width: 30%" >
+                        Xác nhận
+                    </button>
+                    <button class="btn btn-danger" type="reset"  style="width: 30%">
+                        Nhập lại
+                    </button>
+                </div>
+                </div>
         </form>
 EOD;
     echo $chuoi;
