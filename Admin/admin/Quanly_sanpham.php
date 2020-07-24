@@ -114,7 +114,7 @@ EOD;
 EOD;
                     echo $chuoi;
                     $chuoi = <<<EOD
-                        <th>{$row['Hinh']}</th>
+                        <th><img style="width: 100px" src="../img/list_product/{$row['Hinh']}"></th>
                         <th>$GiaNY VND</th>
                         <th>$GiaBan VND</th>
                         <th>{$row['KhuyenMai']}</th>

@@ -286,7 +286,7 @@ EOD;
               <li class = "list_product">
 
                 <a href = "Product_Page.php?title=$title&link={$arr['ID']}">
-                  <img src="{$arr['Hinh']}">
+                  <img src="../img/list_product/{$arr['Hinh']}">
 
                   <h3>{$arr['TenSP']}</h3>
 EOD;

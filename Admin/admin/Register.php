@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Đăng ký</title>
+  <title>Trung tâm smartphone_3t</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <!-- Bootstrap core CSS -->
@@ -44,30 +44,28 @@
           <div class="col-lg-7">
             <div class="p-5">
               <div class="text-center">
-                <h1 class="h4 text-gray-900 mb-4">Đăng ký tài khoản</h1>
+                <h1 class="h4 text-gray-900 mb-4">Thêm tài khoản</h1>
               </div>
-              <form class="user" action="" method="post" enctype="multipart/form-data">
-                <div class="form-group">
-                  <input type="text" class="form-control form-control-user" name="TenKH" id="TenKH" placeholder="Họ và Tên" required>
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control form-control-user" id="SDT" name="SDT" placeholder="SĐT" required>
-                </div>
-                <div class="form-group">
-                  <input type="email" class="form-control form-control-user" id="Email" name="Email" placeholder="youremail@gmail.com" required>
-                </div>
+              <form class="user" action="AddUser.php" method="post" enctype="multipart/form-data">
+              
+           <div class="form-group">
+               <input type="text" class="form-control form-control-user" name="Name" id="Name" placeholder="Tên tài khoản"  required>
+           </div>
+           <div class="form-group">
+               <input type="text" class="form-control form-control-user" id="Password" name="Password" placeholder="Mật khẩu"  required>
+           </div>
+           <div class="form-group">
+               <input type="email" class="form-control form-control-user" id="Email" name="Email" placeholder="youremail@gmail.com"  required>
+           </div>
+
+           <div class="form-group">
+               <input id="Level" name="Level" type="radio" value="Admin" checked="checked" />Admin
+               <input id="Level" name="Level" type="radio" value="Member" />Member
+           </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="password" class="form-control form-control-user" id="InputPassword" name="InputPassword" placeholder="Password" min="8" required>
-                  </div>
-                  <div class="col-sm-6">
-                    <input type="password" class="form-control form-control-user" id="RepeatPassword" name="RepeatPassword" placeholder="Nhập lại Password" min="8" required>
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <div class="col-sm-6 mb-3 mb-sm-0">
-                      <button class="btn btn-primary form-control dangki" type="submit">
-                          Đăng kí
+                      <button class="btn btn-primary form-control" type="submit">
+                          Thêm
                       </button>
                   </div>
                   <div class="col-sm-6">
@@ -77,12 +75,6 @@
                   </div>
                 </div>
               </form>
-              <hr>
-              <div class="text-center">
-                <a class="small" href="forgot-password.html">Quên mật khẩu?</a>
-              </div>
-              <div class="text-center">
-                <a class="small" href="Login.php">Bạn đã có tài khoản? Hãy đăng nhập!</a>
               </div>
             </div>
           </div>
@@ -110,61 +102,6 @@
     <!--/.Copyright-->
 
   </footer>
-  <!-- SCRIPTS -->
-  <!-- JQuery -->
-  <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
-  <script type="text/javascript" src="../js/jquery/jquery-3.5.0.js"></script>
-  <script type="text/javascript">
-  $(".dangki").click(function(){
-      if($("#TenKH").val()==''){
-        alert("Vui lòng nhập Họ và Tên!");
-        return 0;
-      }
-      if($("#SDT").val()==''){
-        alert("Vui lòng nhập SĐT!");
-        return 0;
-      }
-      if($("#Email").val()==''){
-        alert("Vui lòng nhập Email!");
-        return 0;
-      }
-      if($("#InputPassword").val()==''){
-        alert("Vui lòng nhập Password!");
-        return 0;
-      }
-      if($("#RepeatPassword").val()==''){
-        alert("Vui lòng nhập lại Password!");
-        return 0;
-      }
-      $.ajax({
-        url: "XLRegister.php",
-        type: "post",
-        data: {
-            "TenKH": $("#TenKH").val(),
-            "SDT": $("#SDT").val(),
-            "Email": $("#Email").val(),
-            "InputPassword": $("#InputPassword").val(),
-            "RepeatPassword": $("#RepeatPassword").val(),
-        },
-        success: function(data){
-          alert(data);
-          if(data=="Đăng kí thành công")
-            window.location="Login.php";
-          else
-            window.location="#";
-        }
-      });
-  });
-</script>
-  <!-- Bootstrap core JavaScript-->
-  <script src="../vendor/jquery/jquery.min.js"></script>
-  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Core plugin JavaScript-->
-  <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
-  <!-- Custom scripts for all pages-->
-  <script src="../js/sb-admin-2.min.js"></script>
-
 </body>
 
 </html>

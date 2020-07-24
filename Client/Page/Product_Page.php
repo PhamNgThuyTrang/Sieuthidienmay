@@ -153,7 +153,7 @@ EOD;
                         $title = str_replace('-',' ',$_GET['title']);
                         $chuoi = <<<EOD
                     <div style="height: min-content; width: 100%;">
-                        <img class="view" style="width: inherit; height: 300px;"  src="{$row['Hinh']}">
+                        <img class="view" style="width: inherit; height: 300px;"  src="../img/list_product/{$row['Hinh']}">
                     </div>
 EOD;
                     echo $chuoi;

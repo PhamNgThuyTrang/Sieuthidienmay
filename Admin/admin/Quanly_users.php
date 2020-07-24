@@ -8,15 +8,15 @@
  <li class="breadcrumb-item">
    <a href="#">QUẢN LÝ TÀI KHOẢN</a>
  </li>
+ <li class="breadcrumb-item">
+   <a href="Register.php">THÊM LÝ TÀI KHOẢN</a>
+ </li>
 </ol>
-<div class="text-center">
+      <div class="text-center">
            <h1 class="h4 text-gray-900 mb-4">Cập nhật tài khoản</h1>
        </div>
-       <div id="thongtin">
-         <form class="user"  action="" method="post" enctype="multipart/form-data">
-           <div class="form-group">
-             <input type="text" class="form-control form-control-user" name="ID" id="ID" required style="width:0%;height:0%;visibility: hidden;">
-           </div>
+       <div id="thongtin" style="margin-bottom: 50px">
+         <form class="user"  action="AddUser.php" method="post" enctype="multipart/form-data">
            <div class="form-group">
                <input type="text" class="form-control form-control-user" name="Name" id="Name" placeholder="Tên tài khoản"  required>
            </div>
@@ -32,18 +32,19 @@
                <input id="Level" name="Level" type="radio" value="Member" />Member
            </div>
 
-           <div class="form-group row">
-             <div class="col-sm-6 mb-3 mb-sm-0">
-                 <button class="btn btn-primary form-control" type="submit">
-                     Xác nhận
-                 </button>
-             </div>
-             <div class="col-sm-6">
-               <button class="btn btn-danger form-control" type="reset">
-                   Nhập lại
-               </button>
-             </div>
-           </div>
+           <div class="row">
+                <div class="col-12 text-center">
+                    <button class="btn btn-primary" type="submit"  style="width: 30%">
+                        Thêm
+                    </button>
+                    <button class="btn btn-warning" style="width: 30%" >
+                        Xác nhận
+                    </button>
+                    <button class="btn btn-danger" type="reset"  style="width: 30%">
+                        Nhập lại
+                    </button>
+                </div>
+                </div>
          </form>
        </div>
 
@@ -60,6 +61,7 @@
            <th>ID</th>
            <th>Name</th>
            <th>Password</th>
+           <th>Email</th>
            <th>Level</th>
            <th>Ngày tạo</th>
            <th>Thao tác</th>
@@ -76,6 +78,7 @@
                <th>{$row['ID']}</th>
                <th>{$row['Name']}</th>
                <th>{$row['Password']}</th>
+               <th>{$row['Email']}</th>
                <th>{$row['Level']}</th>
                <th>{$row['created_at']}</th>
                <th>
@@ -93,6 +96,8 @@ EOD;
            <th>ID</th>
            <th>Name</th>
            <th>Password</th>
+           <th>Email</th>
+
            <th>Level</th>
            <th>Ngày tạo</th>
            <th>Thao tác</th>

@@ -170,7 +170,7 @@ EOD;
           </div>
         </span>
         <span>
-          <img src="{$row['Hinh']}" height="80">
+          <img src="../img/list_product/{$row['Hinh']}" height="80">
         </span>
         <span style="width:15%" class="text-muted">{$Dongia} VND</span>
         <span style="width:10%%">

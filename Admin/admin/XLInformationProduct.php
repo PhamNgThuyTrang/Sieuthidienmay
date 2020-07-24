@@ -4,7 +4,7 @@
     $rs= Data::ExecuteQuery("SELECT * FROM `thongtin_sanpham` WHERE `ID` = '{$_REQUEST["id"]}'");
     $row = mysqli_fetch_array($rs);
     $chuoi = <<<EOD
-    <form class="user"  action="" method="post" enctype="multipart/form-data">
+    <form class="user"  action="XLUpdateProduct.php" method="post" enctype="multipart/form-data">
           <div class="form-group">
             <input type="text" class="form-control form-control-user" name="ID" id="ID" value="{$row['ID']}" required style="width:0%;height:0%;visibility: hidden;">
           </div>
@@ -46,7 +46,7 @@ EOD;
           <input type="text" class="form-control form-control-user" name="Soluong" id="SoLuong" value="{$row['SoLuong']}" placeholder="Số lượng"  required>
           </div>
           <div class="form-group">
-          Hình ảnh <input type="file" class="" name="Hinh" id="Hinh" value="{$row['Hinh']}"  required>
+          Hình ảnh <input type="file" class="" name="Hinh" id="Hinh">
           </div>
           <div class="form-group row">
             <div class="col-sm-6 mb-3 mb-sm-0">

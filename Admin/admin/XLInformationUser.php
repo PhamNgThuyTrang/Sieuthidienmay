@@ -24,17 +24,18 @@ EOD;
             <input id="Level" name="Level" type="radio" value="Admin" checked="checked" />Admin
             <input id="Level" name="Level" type="radio" value="Member" />Member
         </div>
-        <div class="form-group row">
-        <div class="col-sm-6 mb-3 mb-sm-0">
-            <button class="btn btn-primary form-control" type="submit">
-                Xác nhận
-            </button>
-        </div>
-        <div class="col-sm-6">
-        <button class="btn btn-danger form-control" type="reset">
-            Nhập lại
-        </button>
-        </div>
+                <div class="col-12 text-center">
+                    <button class="btn btn-primary"   style="width: 30%">
+                        Thêm
+                    </button>
+                    <button class="btn btn-warning" type="submit" style="width: 30%" >
+                        Xác nhận
+                    </button>
+                    <button class="btn btn-danger" type="reset"  style="width: 30%">
+                        Nhập lại
+                    </button>
+                </div>
+                </div>
     </div>
     </form>
 
